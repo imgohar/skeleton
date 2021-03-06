@@ -101,7 +101,7 @@
     {{-- Footer --}}
     <div class="navi-separator mt-3"></div>
     <div class="navi-footer  px-8 py-5">
-        <a href="#" target="_blank" class="btn btn-light-primary font-weight-bold">Sign Out</a>
+        <a href="/logout" class="btn btn-light-primary font-weight-bold">Sign Out</a>
         <a href="#" target="_blank" class="btn btn-clean font-weight-bold">Upgrade Plan</a>
     </div>
 </div>
