@@ -1,5 +1,6 @@
 @if(config('layout.self.layout') == 'blank')
     <div class="d-flex flex-column flex-root">
+        @include('includes.alerts')
         @yield('content')
     </div>
 @else

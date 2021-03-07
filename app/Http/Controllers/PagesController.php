@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class PagesController extends Controller
 {
@@ -119,4 +122,27 @@ class PagesController extends Controller
     {
         return view('layout.partials.extras._quick_search_result');
     }
+
+
+    public function passwordRreset(){
+        $page_title = 'Password Reset';
+        $page_description = 'Reset Your Password';
+
+        return view('pages.password-reset', compact('page_title', 'page_description'));
+    }
+
+    public function passwordRresetSubmit(Request $request){
+        $request->validate([
+            'newPassword' => 'required|min:8'
+        ]);
+
+        $user = User::find(Auth::user()->id);
+        $new = $request->newPassword;
+        $user->password = Hash::make($new);
+        $user->save();
+        return redirect("/")->with('success','Password have been updated');
+
+    }
+
+
 }
