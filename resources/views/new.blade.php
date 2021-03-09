@@ -1,109 +1,11 @@
-@extends('layouts.app')
+{{-- Extends layout --}}
+@extends('layout.default')
 
+
+
+
+{{-- Content --}}
 @section('content')
-<style>
-     .success-muted-note {
-            color: #34bfa3 !important;
-            font-weight: 600 !important;
-        }
-
-    
-</style>
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-        {{-- Favicon --}}
-        <link rel="shortcut icon" href="{{ asset('media/logos/favicon.ico') }}" />
-
-        {{-- Fonts --}}
-        {{ Metronic::getGoogleFontsInclude() }}
-
-        {{-- Global Theme Styles (used by all pages) --}}
-        @foreach(config('layout.resources.css') as $style)
-            <link href="{{ config('layout.self.rtl') ? asset(Metronic::rtlCssPath($style)) : asset($style) }}" rel="stylesheet" type="text/css"/>
-        @endforeach
-
-        {{-- Layout Themes (used by all pages) --}}
-        @foreach (Metronic::initThemes() as $theme)
-            <link href="{{ config('layout.self.rtl') ? asset(Metronic::rtlCssPath($theme)) : asset($theme) }}" rel="stylesheet" type="text/css"/>
-        @endforeach
-
-        {{-- Includable CSS --}}
-        @yield('styles')
-
-
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 <link rel="stylesheet" href="{{URL::asset('assets/wizard-2.css')}}">
 <div class="d-flex flex-column-fluid">
@@ -268,59 +170,29 @@
                                     <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
                                         <h4 class="mb-10 font-weight-bold text-dark">Enter your Account Details</h4>
                                         <!--begin::Input-->
-                                        <!--begin::Select-->
-                                       
-                                            
-                                        <div class="col-lg-4 offset-lg-4">
-                                            <div class="form-group">
-                                                <label>Select Your Country</label>
-                                                <select name="country" class="form-control form-control-solid form-control-lg">
-                                                    <option disabled>Select an option</option>
-                                                    <option value="CA">🇨🇦  Canada</option>
-                                                    
-                                                    <option value="PK">🇵🇰  Pakistan</option>
-                                                    
-                                                    <option value="AE">🇦🇪  United Arab Emirates</option>
-                                                    
-                                                    <option value="US">🇺🇸  United States</option>
-                                                    
-                                                </select>
-                                            </div>
-                                        </div> 
-                                        <div class="row">
-
-                                        <div class="col-lg-4">
-                                            <div class="form-group">
-                                                <label>First Name</label>
-                                                <input type="text" class="form-control form-control-solid form-control-lg" name="fname" placeholder="First Name" value="" />
-                                                <span class="form-text text-muted">Please enter your first name.</span>
-                                            </div>
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            <input type="text" class="form-control form-control-solid form-control-lg" name="fname" placeholder="First Name" value="" />
+                                            <span class="form-text text-muted">Please enter your first name.</span>
                                         </div>
-                                        
                                         <!--end::Input-->
                                         <!--begin::Input-->
-                                        <div class="col-lg-4">
-                                            <div class="form-group">
-                                                <label>Middle Name</label>
-                                                <input type="text" class="form-control form-control-solid form-control-lg" name="mname" placeholder="Last Name" value="" />
-                                                <span class="form-text text-muted">Please enter your middle name.</span>
-                                            </div>
+                                        <div class="form-group">
+                                            <label>Last Name</label>
+                                            <input type="text" class="form-control form-control-solid form-control-lg" name="lname" placeholder="Last Name" value="" />
+                                            <span class="form-text text-muted">Please enter your last name.</span>
                                         </div>
-                                        
-                                        <div class="col-lg-4">
-                                            <div class="form-group">
-                                                <label>Last Name</label>
-                                                <input type="text" class="form-control form-control-solid form-control-lg" name="lname" placeholder="Last Name" value="" />
-                                                <span class="form-text text-muted">Please enter your last name.</span>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                        
-                                        
                                         <!--end::Input-->
                                         <div class="row">
-                                            
+                                            <div class="col-xl-6">
+                                                <!--begin::Input-->
+                                                <div class="form-group">
+                                                    <label>Phone</label>
+                                                    <input type="tel" class="form-control form-control-solid form-control-lg" name="phone" placeholder="phone" value="+61412345678" />
+                                                    <span class="form-text text-muted">Please enter your phone number.</span>
+                                                </div>
+                                                <!--end::Input-->
+                                            </div>
                                             <div class="col-xl-6">
                                                 <!--begin::Input-->
                                                 <div class="form-group">
@@ -330,48 +202,7 @@
                                                 </div>
                                                 <!--end::Input-->
                                             </div>
-                                            <div class="col-xl-6">
-                                                <!--begin::Input-->
-                                                <div class="form-group">
-                                                    <label>Phone</label>
-                                                    <input type="tel" class="form-control form-control-solid form-control-lg" name="phone" placeholder="phone" value="+61412345678" id="phone" />
-                                                    <span class="form-text text-muted">Please enter your phone number.</span>
-                                                </div>
-                                                <!--end::Input-->
-                                            </div>
                                         </div>
-
-                                        <div class="row">
-                                            
-                                            <div class="col-xl-6">
-                                                <!--begin::Input-->
-                                                <div class="form-group">
-                                                    <label>Password</label>
-                                                    <input type="password" id="pass" class="form-control form-control-solid form-control-lg" name="password" placeholder="Password"  />
-                                                   
-                                                    <span class="form-text" id="pass_upper_note"> 1 Uppercase</span>
-                                                    
-                                                    <span class="form-text" id="pass_lower_note">1 Lowercase</span>
-                                                
-                                                    <span class="form-text" id="pass_numeric_note"> 1 Numeric</span>
-                                                    
-                                                    <span class="form-text" id="pass_special_note"> 1 Special Character</span>
-                                                    
-                                                    <span class=" form-text" id="pass_length_note" > Atleast 8 character long</span>
-                                                </div>
-                                                <!--end::Input-->
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <!--begin::Input-->
-                                                <div class="form-group">
-                                                    <label>Confirm Password</label>
-                                                    <input type="password" class="form-control form-control-solid form-control-lg" name="cpassword" placeholder="confirm password" id="cpassword" />
-                                                    <span class="form-text text-muted">Please confirm your password.</span>
-                                                </div>
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-
                                     </div>
                                     <!--end: Wizard Step 1-->
                                     <!--begin: Wizard Step 2-->
@@ -1164,16 +995,7 @@
 <!--end::Entry-->
 
 
-     {{-- Global Theme JS Bundle (used by all pages)  --}}
-     @foreach(config('layout.resources.js') as $script)
-     <script src="{{ asset($script) }}" type="text/javascript"></script>
- @endforeach
-
- {{-- Includable JS --}}
- @yield('scripts')
-    {{-- @endsection --}}
+    
+    @endsection
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
 <script src="{{URL::asset('js/wizard-2.js')}}"></script>
-@endsection

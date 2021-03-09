@@ -145,4 +145,9 @@ class PagesController extends Controller
     }
 
 
+    public function new(){
+        return view('new');
+    }
+
+
 }

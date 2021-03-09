@@ -1,0 +1,161 @@
+/* line 15, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+.wizard.wizard-2 {
+  display: flex;
+}
+
+/* line 19, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+.wizard.wizard-2 .wizard-nav {
+  padding: 0;
+  flex: 0 0 400px;
+  width: 400px;
+  max-width: 100%;
+}
+
+/* line 26, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* line 32, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step {
+  padding: 0.75rem 1.5rem;
+  position: relative;
+  border-radius: 0.5rem;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* line 38, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step .wizard-wrapper {
+  display: flex;
+}
+
+/* line 42, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step .wizard-icon {
+  font-size: 2.5rem;
+  margin-right: 1.1rem;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* line 47, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step .wizard-icon i {
+  color: #B5B5C3;
+}
+
+/* line 9, ../../../../../Users/mac/Desktop/html/demo1/src/sass/components/mixins/_svg-icon.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step .wizard-icon .svg-icon svg g [fill] {
+  transition: fill 0.3s ease;
+  fill: #B5B5C3;
+}
+
+/* line 17, ../../../../../Users/mac/Desktop/html/demo1/src/sass/components/mixins/_svg-icon.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step .wizard-icon .svg-icon svg:hover g [fill] {
+  transition: fill 0.3s ease;
+}
+
+/* line 56, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step .wizard-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* line 61, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step .wizard-label .wizard-title {
+  color: #181C32;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+/* line 67, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step .wizard-label .wizard-desc {
+  color: #7E8299;
+}
+
+/* line 72, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step .wizard-arrow {
+  color: #7E8299;
+  font-size: 1.25rem;
+}
+
+/* line 76, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step .wizard-arrow.last {
+  display: none;
+}
+
+/* line 81, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step[data-wizard-state="current"] {
+  background-color: #F3F6F9;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* line 85, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step[data-wizard-state="current"] .wizard-icon {
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* line 88, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step[data-wizard-state="current"] .wizard-icon i {
+  color: #3699FF !important;
+}
+
+/* line 9, ../../../../../Users/mac/Desktop/html/demo1/src/sass/components/mixins/_svg-icon.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step[data-wizard-state="current"] .wizard-icon .svg-icon svg g [fill] {
+  transition: fill 0.3s ease;
+  fill: #3699FF !important;
+}
+
+/* line 17, ../../../../../Users/mac/Desktop/html/demo1/src/sass/components/mixins/_svg-icon.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step[data-wizard-state="current"] .wizard-icon .svg-icon svg:hover g [fill] {
+  transition: fill 0.3s ease;
+}
+
+/* line 97, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+.wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step[data-wizard-state="current"]:after {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  content: " ";
+  height: 0;
+  width: 0;
+  border: solid transparent;
+  position: absolute;
+  border-left-color: #F3F6F9;
+  border-width: 1rem;
+}
+
+/* line 115, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+.wizard.wizard-2 .wizard-body {
+  width: 100%;
+}
+
+@media (min-width: 992px) and (max-width: 1399.98px) {
+  /* line 125, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+  .wizard.wizard-2 .wizard-nav {
+    flex: 0 0 325px;
+    width: 325px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  /* line 134, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+  .wizard.wizard-2 {
+    display: block;
+  }
+  /* line 138, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+  .wizard.wizard-2 .wizard-nav {
+    width: 100%;
+    border-bottom: 1px solid #EBEDF3;
+  }
+  /* line 145, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+  .wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step[data-wizard-state="current"]:after {
+    content: none;
+  }
+  /* line 154, ../../../../../Users/mac/Desktop/html/demo1/src/sass/pages/wizard/wizard-2.scss */
+  .wizard.wizard-2 .wizard-body {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=wizard-2.css.map */
