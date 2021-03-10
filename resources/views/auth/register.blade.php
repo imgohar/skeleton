@@ -321,20 +321,29 @@
                                         <!--end::Input-->
                                         <div class="row">
                                             
-                                            <div class="col-xl-6">
+                                            <div class="col-xl-4">
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>Email</label>
-                                                    <input type="email" class="form-control form-control-solid form-control-lg" name="email" placeholder="Email" value="john.wick@reeves.com" />
+                                                    <input type="email" class="form-control form-control-solid form-control-lg" name="email" placeholder="Email"  />
                                                     <span class="form-text text-muted">Please enter your email address.</span>
                                                 </div>
                                                 <!--end::Input-->
                                             </div>
-                                            <div class="col-xl-6">
+                                            <div class="col-xl-4">
+                                                <!--begin::Input-->
+                                                <div class="form-group">
+                                                    <label>City</label>
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="city" placeholder="City"  />
+                                                    <span class="form-text text-muted">Please enter your city</span>
+                                                </div>
+                                                <!--end::Input-->
+                                            </div>
+                                            <div class="col-xl-4">
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>Phone</label>
-                                                    <input type="tel" class="form-control form-control-solid form-control-lg" name="phone" placeholder="phone" value="+61412345678" id="phone" />
+                                                    <input type="tel" class="form-control form-control-solid form-control-lg" name="phone" placeholder="phone"  id="phone" />
                                                     <span class="form-text text-muted">Please enter your phone number.</span>
                                                 </div>
                                                 <!--end::Input-->

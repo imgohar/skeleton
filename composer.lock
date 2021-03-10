@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "09c091c584be40b1ba663ef07a323cc7",
+    "content-hash": "04b8bb25c54f1f7b91945c32f86dd13e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4915,6 +4915,63 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.9.1"
             },
             "time": "2020-07-08T17:02:28+00:00"
+        },
+        {
+            "name": "yurtesen/geonames",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yurtesen/geonames.git",
+                "reference": "fff99487a68dbcd4029cac81285f1a15531e82aa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yurtesen/geonames/zipball/fff99487a68dbcd4029cac81285f1a15531e82aa",
+                "reference": "fff99487a68dbcd4029cac81285f1a15531e82aa",
+                "shasum": ""
+            },
+            "require": {
+                "ext-zip": "*",
+                "illuminate/config": "^5.2.0|^6.0|^7.0|^8.0",
+                "illuminate/console": "^5.2.0|^6.0|^7.0|^8.0",
+                "illuminate/database": "^5.2.0|^6.0|^7.0|^8.0",
+                "illuminate/filesystem": "^5.2.0|^6.0|^7.0|^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/Models"
+                ],
+                "psr-4": {
+                    "Yurtesen\\Geonames\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Evren Yurtesen",
+                    "email": "eyurtese@abo.fi"
+                }
+            ],
+            "description": "Geonames importer and models for Eloquent ORM",
+            "keywords": [
+                "city",
+                "country",
+                "eloquent",
+                "geonames",
+                "laravel",
+                "location",
+                "timezone"
+            ],
+            "support": {
+                "issues": "https://github.com/yurtesen/geonames/issues",
+                "source": "https://github.com/yurtesen/geonames/tree/v0.1.5"
+            },
+            "time": "2020-09-22T19:21:28+00:00"
         }
     ],
     "packages-dev": [
@@ -7348,7 +7405,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "yurtesen/geonames": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
