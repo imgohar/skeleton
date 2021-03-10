@@ -7,83 +7,15 @@
             font-weight: 600 !important;
         }
 
-    
+            div.ex1 {
+                background: #eee;
+                height: 400px;
+                overflow: scroll;
+}
+
 </style>
 
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
         {{-- Favicon --}}
         <link rel="shortcut icon" href="{{ asset('media/logos/favicon.ico') }}" />
@@ -185,54 +117,7 @@
                                 </div>
                             </div>
                             <!--end::Wizard Step 3 Nav-->
-                            <!--begin::Wizard Step 4 Nav-->
-                            <div class="wizard-step" data-wizard-type="step">
-                                <div class="wizard-wrapper">
-                                    <div class="wizard-icon">
-                                        <span class="svg-icon svg-icon-2x">
-                                            <!--begin::Svg Icon | path:assets/media/svg/icons/Map/Position.svg-->
-                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <rect x="0" y="0" width="24" height="24" />
-                                                    <path d="M19,11 L21,11 C21.5522847,11 22,11.4477153 22,12 C22,12.5522847 21.5522847,13 21,13 L19,13 C18.4477153,13 18,12.5522847 18,12 C18,11.4477153 18.4477153,11 19,11 Z M3,11 L5,11 C5.55228475,11 6,11.4477153 6,12 C6,12.5522847 5.55228475,13 5,13 L3,13 C2.44771525,13 2,12.5522847 2,12 C2,11.4477153 2.44771525,11 3,11 Z M12,2 C12.5522847,2 13,2.44771525 13,3 L13,5 C13,5.55228475 12.5522847,6 12,6 C11.4477153,6 11,5.55228475 11,5 L11,3 C11,2.44771525 11.4477153,2 12,2 Z M12,18 C12.5522847,18 13,18.4477153 13,19 L13,21 C13,21.5522847 12.5522847,22 12,22 C11.4477153,22 11,21.5522847 11,21 L11,19 C11,18.4477153 11.4477153,18 12,18 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
-                                                    <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="2" />
-                                                    <path d="M12,17 C14.7614237,17 17,14.7614237 17,12 C17,9.23857625 14.7614237,7 12,7 C9.23857625,7 7,9.23857625 7,12 C7,14.7614237 9.23857625,17 12,17 Z M12,19 C8.13400675,19 5,15.8659932 5,12 C5,8.13400675 8.13400675,5 12,5 C15.8659932,5 19,8.13400675 19,12 C19,15.8659932 15.8659932,19 12,19 Z" fill="#000000" fill-rule="nonzero" />
-                                                </g>
-                                            </svg>
-                                            <!--end::Svg Icon-->
-                                        </span>
-                                    </div>
-                                    <div class="wizard-label">
-                                        <h3 class="wizard-title">Set Your Delivery Address</h3>
-                                        <div class="wizard-desc">Address, Street, City, State</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end::Wizard Step 4 Nav-->
-                            <!--begin::Wizard Step 5 Nav-->
-                            <div class="wizard-step" data-wizard-type="step">
-                                <div class="wizard-wrapper">
-                                    <div class="wizard-icon">
-                                        <span class="svg-icon svg-icon-2x">
-                                            <!--begin::Svg Icon | path:assets/media/svg/icons/Shopping/Credit-card.svg-->
-                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <rect x="0" y="0" width="24" height="24" />
-                                                    <rect fill="#000000" opacity="0.3" x="2" y="5" width="20" height="14" rx="2" />
-                                                    <rect fill="#000000" x="2" y="8" width="20" height="3" />
-                                                    <rect fill="#000000" opacity="0.3" x="16" y="14" width="4" height="2" rx="1" />
-                                                </g>
-                                            </svg>
-                                            <!--end::Svg Icon-->
-                                        </span>
-                                    </div>
-                                    <div class="wizard-label">
-                                        <h3 class="wizard-title">Make Payment</h3>
-                                        <div class="wizard-desc">Use Credit or Debit Cards</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end::Wizard Step 5 Nav-->
+                            
                             <!--begin::Wizard Step 6 Nav-->
                             <div class="wizard-step" data-wizard-type="step">
                                 <div class="wizard-wrapper">
@@ -264,7 +149,8 @@
                         <!--begin: Wizard Form-->
                         <div class="row">
                             <div class="offset-xxl-2 col-xxl-8">
-                                <form class="form" id="kt_form">
+                                <form method="POST" action="{{ route('register') }}" class="form" id="kt_form">
+                                    @csrf
                                     <!--begin: Wizard Step 1-->
                                     <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
                                         <h4 class="mb-10 font-weight-bold text-dark">Enter your Account Details</h4>
@@ -276,7 +162,7 @@
                                             <div class="form-group">
                                                 <label>Select Your Country</label>
                                                 <select id="country" name="country" class="form-control form-control-solid form-control-lg">
-                                                    <option disabled>Select an option</option>
+                                                    
                                                     <option value="CA">🇨🇦  Canada</option>
                                                     
                                                     <option value="PK">🇵🇰  Pakistan</option>
@@ -293,7 +179,7 @@
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label>First Name</label>
-                                                <input type="text" class="form-control form-control-solid form-control-lg" name="fname" placeholder="First Name" value="s" />
+                                                <input type="text" class="form-control form-control-solid form-control-lg" name="fname" placeholder="First Name" value="{{ old('fname') }}" />
                                                 <span class="form-text text-muted">Please enter your first name.</span>
                                             </div>
                                         </div>
@@ -303,7 +189,7 @@
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label>Middle Name</label>
-                                                <input type="text" class="form-control form-control-solid form-control-lg" name="mname" placeholder="Last Name" value="s" />
+                                                <input type="text" class="form-control form-control-solid form-control-lg" name="mname" placeholder="Last Name" value="{{ old('mname') }}" />
                                                 <span class="form-text text-muted">Please enter your middle name.</span>
                                             </div>
                                         </div>
@@ -311,7 +197,7 @@
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label>Last Name</label>
-                                                <input type="text" class="form-control form-control-solid form-control-lg" name="lname" placeholder="Last Name" value="s" />
+                                                <input type="text" class="form-control form-control-solid form-control-lg" name="lname" placeholder="Last Name" value="{{ old('lname') }}" />
                                                 <span class="form-text text-muted">Please enter your last name.</span>
                                             </div>
                                         </div>
@@ -326,7 +212,12 @@
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>Email</label>
-                                                    <input type="email" class="form-control form-control-solid form-control-lg" name="email" value="sd@jjk.adas" placeholder="Email"  />
+                                                    <input type="email" class="form-control form-control-solid form-control-lg" name="email" value="{{ old('email') }}" placeholder="Email"  />
+                                                    @error('email')
+                                                        <span class="text-danger form-text" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                     <span class="form-text text-muted">Please enter your email address.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -336,7 +227,7 @@
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>Phone</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="phone" value="23123131" placeholder="phone"  id="phone" />
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="phone" value="{{ old('phone') }}" placeholder="phone"  id="phone" />
                                                     <span class="form-text text-muted">Please enter your phone number.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -349,7 +240,7 @@
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>Password</label>
-                                                    <input type="password" id="pass" value="*Gohar12345*" class="form-control form-control-solid form-control-lg" name="password" placeholder="Password"  />
+                                                    <input type="password" id="pass" class="form-control form-control-solid form-control-lg" name="password" placeholder="Password"  />
                                                    
                                                     <span class="form-text" id="pass_upper_note"> 1 Uppercase</span>
                                                     
@@ -367,7 +258,7 @@
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>Confirm Password</label>
-                                                    <input type="password" class="form-control form-control-solid form-control-lg" name="cpassword" placeholder="confirm password" value="*Gohar12345*"id="cpassword" />
+                                                    <input type="password" class="form-control form-control-solid form-control-lg" name="cpassword" placeholder="confirm password" id="cpassword" />
                                                     <span class="form-text text-muted">Please confirm your password.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -384,7 +275,7 @@
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>Address Line 1</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="address1" placeholder="Address Line 1" value="Address Line 1" />
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="address_1" placeholder="Address Line 1" value="{{old('address_1')}}" />
                                                     <span class="form-text text-muted">Please enter your Address.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -393,7 +284,7 @@
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>Address Line 2</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="address2" placeholder="Address Line 2" value="Address Line 2" />
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="address_2" placeholder="Address Line 2" value="{{old('address_2')}}" />
                                                     <span class="form-text text-muted">Please enter your Address.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -404,7 +295,7 @@
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>Postcode</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="postcode" placeholder="Postcode" value="3000" />
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="post_code" placeholder="Postcode" value="{{old('post_code')}}" />
                                                     <span class="form-text text-muted">Please enter your Postcode.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -413,7 +304,7 @@
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>City</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="city" placeholder="City" value="Melbourne" />
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="city" placeholder="City" value="{{old('city')}}" />
                                                     <span class="form-text text-muted">Please enter your City.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -424,7 +315,7 @@
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>State</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="state" placeholder="State" value="VIC" />
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="state" placeholder="State" value="{{old('state')}}" />
                                                     <span class="form-text text-muted">Please enter your State.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -441,21 +332,21 @@
                                             <div class="col-xl-4">
                                                 <div class="form-group">
                                                     <label>Legal Business Name</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="bname" placeholder="Business Name" value="Melbourne" />
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="bname" placeholder="Business Name" value="{{old('bname')}}" />
                                                     <span class="form-text text-muted">Please enter your Business Name.</span>
                                                 </div>
                                             </div>
                                             <div class="col-xl-4">
                                                 <div class="form-group">
                                                     <label>Tax ID/ EIN</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="tid" placeholder="Enter Tax ID/ EIN" value="Melbourne" />
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="tid" placeholder="Enter Tax ID/ EIN" value="{{old('tid')}}" />
                                                     <span class="form-text text-muted">Please enter your Business Tax id/EIN.</span>
                                                 </div>
                                             </div>
                                             <div class="col-xl-4">
                                                 <div class="form-group">
                                                     <label>Business Contact No*</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="bNumber" placeholder="Business contact number" value="Business" />
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="bNumber" placeholder="Business contact number" value="{{old('bNumber')}}" />
                                                     <span class="form-text text-muted">Please enter your Business Contact Number.</span>
                                                 </div>
 
@@ -474,411 +365,11 @@
                                         
                                     </div>
                                     <!--end: Wizard Step 3-->
-                                    <!--begin: Wizard Step 4-->
-                                    <div class="pb-5" data-wizard-type="step-content">
-                                        <h4 class="mb-10 font-weight-bold text-dark">Setup Your Delivery Location</h4>
-                                        <div class="row">
-                                            <div class="col-xl-6">
-                                                <!--begin::Input-->
-                                                <div class="form-group">
-                                                    <label>Address Line 1</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="locaddress1" placeholder="Address Line 1" value="Address Line 1" />
-                                                    <span class="form-text text-muted">Please enter your Address.</span>
-                                                </div>
-                                                <!--end::Input-->
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <!--begin::Input-->
-                                                <div class="form-group">
-                                                    <label>Address Line 2</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="locaddress2" placeholder="Address Line 2" value="Address Line 2" />
-                                                    <span class="form-text text-muted">Please enter your Address.</span>
-                                                </div>
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xl-6">
-                                                <!--begin::Input-->
-                                                <div class="form-group">
-                                                    <label>Postcode</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="locpostcode" placeholder="Postcode" value="3072" />
-                                                    <span class="form-text text-muted">Please enter your Postcode.</span>
-                                                </div>
-                                                <!--end::Input-->
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <!--begin::Input-->
-                                                <div class="form-group">
-                                                    <label>City</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="loccity" placeholder="City" value="Preston" />
-                                                    <span class="form-text text-muted">Please enter your City.</span>
-                                                </div>
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xl-6">
-                                                <!--begin::Input-->
-                                                <div class="form-group">
-                                                    <label>State</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="locstate" placeholder="State" value="VIC" />
-                                                    <span class="form-text text-muted">Please enter your state.</span>
-                                                </div>
-                                                <!--end::Input-->
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <!--begin::Select-->
-                                                <div class="form-group">
-                                                    <label>Country</label>
-                                                    <select name="loccountry" class="form-control form-control-solid form-control-lg">
-                                                        <option value="">Select</option>
-                                                        <option value="AF">Afghanistan</option>
-                                                        <option value="AX">Åland Islands</option>
-                                                        <option value="AL">Albania</option>
-                                                        <option value="DZ">Algeria</option>
-                                                        <option value="AS">American Samoa</option>
-                                                        <option value="AD">Andorra</option>
-                                                        <option value="AO">Angola</option>
-                                                        <option value="AI">Anguilla</option>
-                                                        <option value="AQ">Antarctica</option>
-                                                        <option value="AG">Antigua and Barbuda</option>
-                                                        <option value="AR">Argentina</option>
-                                                        <option value="AM">Armenia</option>
-                                                        <option value="AW">Aruba</option>
-                                                        <option value="AU" selected="selected">Australia</option>
-                                                        <option value="AT">Austria</option>
-                                                        <option value="AZ">Azerbaijan</option>
-                                                        <option value="BS">Bahamas</option>
-                                                        <option value="BH">Bahrain</option>
-                                                        <option value="BD">Bangladesh</option>
-                                                        <option value="BB">Barbados</option>
-                                                        <option value="BY">Belarus</option>
-                                                        <option value="BE">Belgium</option>
-                                                        <option value="BZ">Belize</option>
-                                                        <option value="BJ">Benin</option>
-                                                        <option value="BM">Bermuda</option>
-                                                        <option value="BT">Bhutan</option>
-                                                        <option value="BO">Bolivia, Plurinational State of</option>
-                                                        <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
-                                                        <option value="BA">Bosnia and Herzegovina</option>
-                                                        <option value="BW">Botswana</option>
-                                                        <option value="BV">Bouvet Island</option>
-                                                        <option value="BR">Brazil</option>
-                                                        <option value="IO">British Indian Ocean Territory</option>
-                                                        <option value="BN">Brunei Darussalam</option>
-                                                        <option value="BG">Bulgaria</option>
-                                                        <option value="BF">Burkina Faso</option>
-                                                        <option value="BI">Burundi</option>
-                                                        <option value="KH">Cambodia</option>
-                                                        <option value="CM">Cameroon</option>
-                                                        <option value="CA">Canada</option>
-                                                        <option value="CV">Cape Verde</option>
-                                                        <option value="KY">Cayman Islands</option>
-                                                        <option value="CF">Central African Republic</option>
-                                                        <option value="TD">Chad</option>
-                                                        <option value="CL">Chile</option>
-                                                        <option value="CN">China</option>
-                                                        <option value="CX">Christmas Island</option>
-                                                        <option value="CC">Cocos (Keeling) Islands</option>
-                                                        <option value="CO">Colombia</option>
-                                                        <option value="KM">Comoros</option>
-                                                        <option value="CG">Congo</option>
-                                                        <option value="CD">Congo, the Democratic Republic of the</option>
-                                                        <option value="CK">Cook Islands</option>
-                                                        <option value="CR">Costa Rica</option>
-                                                        <option value="CI">Côte d'Ivoire</option>
-                                                        <option value="HR">Croatia</option>
-                                                        <option value="CU">Cuba</option>
-                                                        <option value="CW">Curaçao</option>
-                                                        <option value="CY">Cyprus</option>
-                                                        <option value="CZ">Czech Republic</option>
-                                                        <option value="DK">Denmark</option>
-                                                        <option value="DJ">Djibouti</option>
-                                                        <option value="DM">Dominica</option>
-                                                        <option value="DO">Dominican Republic</option>
-                                                        <option value="EC">Ecuador</option>
-                                                        <option value="EG">Egypt</option>
-                                                        <option value="SV">El Salvador</option>
-                                                        <option value="GQ">Equatorial Guinea</option>
-                                                        <option value="ER">Eritrea</option>
-                                                        <option value="EE">Estonia</option>
-                                                        <option value="ET">Ethiopia</option>
-                                                        <option value="FK">Falkland Islands (Malvinas)</option>
-                                                        <option value="FO">Faroe Islands</option>
-                                                        <option value="FJ">Fiji</option>
-                                                        <option value="FI">Finland</option>
-                                                        <option value="FR">France</option>
-                                                        <option value="GF">French Guiana</option>
-                                                        <option value="PF">French Polynesia</option>
-                                                        <option value="TF">French Southern Territories</option>
-                                                        <option value="GA">Gabon</option>
-                                                        <option value="GM">Gambia</option>
-                                                        <option value="GE">Georgia</option>
-                                                        <option value="DE">Germany</option>
-                                                        <option value="GH">Ghana</option>
-                                                        <option value="GI">Gibraltar</option>
-                                                        <option value="GR">Greece</option>
-                                                        <option value="GL">Greenland</option>
-                                                        <option value="GD">Grenada</option>
-                                                        <option value="GP">Guadeloupe</option>
-                                                        <option value="GU">Guam</option>
-                                                        <option value="GT">Guatemala</option>
-                                                        <option value="GG">Guernsey</option>
-                                                        <option value="GN">Guinea</option>
-                                                        <option value="GW">Guinea-Bissau</option>
-                                                        <option value="GY">Guyana</option>
-                                                        <option value="HT">Haiti</option>
-                                                        <option value="HM">Heard Island and McDonald Islands</option>
-                                                        <option value="VA">Holy See (Vatican City State)</option>
-                                                        <option value="HN">Honduras</option>
-                                                        <option value="HK">Hong Kong</option>
-                                                        <option value="HU">Hungary</option>
-                                                        <option value="IS">Iceland</option>
-                                                        <option value="IN">India</option>
-                                                        <option value="ID">Indonesia</option>
-                                                        <option value="IR">Iran, Islamic Republic of</option>
-                                                        <option value="IQ">Iraq</option>
-                                                        <option value="IE">Ireland</option>
-                                                        <option value="IM">Isle of Man</option>
-                                                        <option value="IL">Israel</option>
-                                                        <option value="IT">Italy</option>
-                                                        <option value="JM">Jamaica</option>
-                                                        <option value="JP">Japan</option>
-                                                        <option value="JE">Jersey</option>
-                                                        <option value="JO">Jordan</option>
-                                                        <option value="KZ">Kazakhstan</option>
-                                                        <option value="KE">Kenya</option>
-                                                        <option value="KI">Kiribati</option>
-                                                        <option value="KP">Korea, Democratic People's Republic of</option>
-                                                        <option value="KR">Korea, Republic of</option>
-                                                        <option value="KW">Kuwait</option>
-                                                        <option value="KG">Kyrgyzstan</option>
-                                                        <option value="LA">Lao People's Democratic Republic</option>
-                                                        <option value="LV">Latvia</option>
-                                                        <option value="LB">Lebanon</option>
-                                                        <option value="LS">Lesotho</option>
-                                                        <option value="LR">Liberia</option>
-                                                        <option value="LY">Libya</option>
-                                                        <option value="LI">Liechtenstein</option>
-                                                        <option value="LT">Lithuania</option>
-                                                        <option value="LU">Luxembourg</option>
-                                                        <option value="MO">Macao</option>
-                                                        <option value="MK">Macedonia, the former Yugoslav Republic of</option>
-                                                        <option value="MG">Madagascar</option>
-                                                        <option value="MW">Malawi</option>
-                                                        <option value="MY">Malaysia</option>
-                                                        <option value="MV">Maldives</option>
-                                                        <option value="ML">Mali</option>
-                                                        <option value="MT">Malta</option>
-                                                        <option value="MH">Marshall Islands</option>
-                                                        <option value="MQ">Martinique</option>
-                                                        <option value="MR">Mauritania</option>
-                                                        <option value="MU">Mauritius</option>
-                                                        <option value="YT">Mayotte</option>
-                                                        <option value="MX">Mexico</option>
-                                                        <option value="FM">Micronesia, Federated States of</option>
-                                                        <option value="MD">Moldova, Republic of</option>
-                                                        <option value="MC">Monaco</option>
-                                                        <option value="MN">Mongolia</option>
-                                                        <option value="ME">Montenegro</option>
-                                                        <option value="MS">Montserrat</option>
-                                                        <option value="MA">Morocco</option>
-                                                        <option value="MZ">Mozambique</option>
-                                                        <option value="MM">Myanmar</option>
-                                                        <option value="NA">Namibia</option>
-                                                        <option value="NR">Nauru</option>
-                                                        <option value="NP">Nepal</option>
-                                                        <option value="NL">Netherlands</option>
-                                                        <option value="NC">New Caledonia</option>
-                                                        <option value="NZ">New Zealand</option>
-                                                        <option value="NI">Nicaragua</option>
-                                                        <option value="NE">Niger</option>
-                                                        <option value="NG">Nigeria</option>
-                                                        <option value="NU">Niue</option>
-                                                        <option value="NF">Norfolk Island</option>
-                                                        <option value="MP">Northern Mariana Islands</option>
-                                                        <option value="NO">Norway</option>
-                                                        <option value="OM">Oman</option>
-                                                        <option value="PK">Pakistan</option>
-                                                        <option value="PW">Palau</option>
-                                                        <option value="PS">Palestinian Territory, Occupied</option>
-                                                        <option value="PA">Panama</option>
-                                                        <option value="PG">Papua New Guinea</option>
-                                                        <option value="PY">Paraguay</option>
-                                                        <option value="PE">Peru</option>
-                                                        <option value="PH">Philippines</option>
-                                                        <option value="PN">Pitcairn</option>
-                                                        <option value="PL">Poland</option>
-                                                        <option value="PT">Portugal</option>
-                                                        <option value="PR">Puerto Rico</option>
-                                                        <option value="QA">Qatar</option>
-                                                        <option value="RE">Réunion</option>
-                                                        <option value="RO">Romania</option>
-                                                        <option value="RU">Russian Federation</option>
-                                                        <option value="RW">Rwanda</option>
-                                                        <option value="BL">Saint Barthélemy</option>
-                                                        <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
-                                                        <option value="KN">Saint Kitts and Nevis</option>
-                                                        <option value="LC">Saint Lucia</option>
-                                                        <option value="MF">Saint Martin (French part)</option>
-                                                        <option value="PM">Saint Pierre and Miquelon</option>
-                                                        <option value="VC">Saint Vincent and the Grenadines</option>
-                                                        <option value="WS">Samoa</option>
-                                                        <option value="SM">San Marino</option>
-                                                        <option value="ST">Sao Tome and Principe</option>
-                                                        <option value="SA">Saudi Arabia</option>
-                                                        <option value="SN">Senegal</option>
-                                                        <option value="RS">Serbia</option>
-                                                        <option value="SC">Seychelles</option>
-                                                        <option value="SL">Sierra Leone</option>
-                                                        <option value="SG">Singapore</option>
-                                                        <option value="SX">Sint Maarten (Dutch part)</option>
-                                                        <option value="SK">Slovakia</option>
-                                                        <option value="SI">Slovenia</option>
-                                                        <option value="SB">Solomon Islands</option>
-                                                        <option value="SO">Somalia</option>
-                                                        <option value="ZA">South Africa</option>
-                                                        <option value="GS">South Georgia and the South Sandwich Islands</option>
-                                                        <option value="SS">South Sudan</option>
-                                                        <option value="ES">Spain</option>
-                                                        <option value="LK">Sri Lanka</option>
-                                                        <option value="SD">Sudan</option>
-                                                        <option value="SR">Suriname</option>
-                                                        <option value="SJ">Svalbard and Jan Mayen</option>
-                                                        <option value="SZ">Swaziland</option>
-                                                        <option value="SE">Sweden</option>
-                                                        <option value="CH">Switzerland</option>
-                                                        <option value="SY">Syrian Arab Republic</option>
-                                                        <option value="TW">Taiwan, Province of China</option>
-                                                        <option value="TJ">Tajikistan</option>
-                                                        <option value="TZ">Tanzania, United Republic of</option>
-                                                        <option value="TH">Thailand</option>
-                                                        <option value="TL">Timor-Leste</option>
-                                                        <option value="TG">Togo</option>
-                                                        <option value="TK">Tokelau</option>
-                                                        <option value="TO">Tonga</option>
-                                                        <option value="TT">Trinidad and Tobago</option>
-                                                        <option value="TN">Tunisia</option>
-                                                        <option value="TR">Turkey</option>
-                                                        <option value="TM">Turkmenistan</option>
-                                                        <option value="TC">Turks and Caicos Islands</option>
-                                                        <option value="TV">Tuvalu</option>
-                                                        <option value="UG">Uganda</option>
-                                                        <option value="UA">Ukraine</option>
-                                                        <option value="AE">United Arab Emirates</option>
-                                                        <option value="GB">United Kingdom</option>
-                                                        <option value="US">United States</option>
-                                                        <option value="UM">United States Minor Outlying Islands</option>
-                                                        <option value="UY">Uruguay</option>
-                                                        <option value="UZ">Uzbekistan</option>
-                                                        <option value="VU">Vanuatu</option>
-                                                        <option value="VE">Venezuela, Bolivarian Republic of</option>
-                                                        <option value="VN">Viet Nam</option>
-                                                        <option value="VG">Virgin Islands, British</option>
-                                                        <option value="VI">Virgin Islands, U.S.</option>
-                                                        <option value="WF">Wallis and Futuna</option>
-                                                        <option value="EH">Western Sahara</option>
-                                                        <option value="YE">Yemen</option>
-                                                        <option value="ZM">Zambia</option>
-                                                        <option value="ZW">Zimbabwe</option>
-                                                    </select>
-                                                </div>
-                                                <!--end::Select-->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--end: Wizard Step 4-->
-                                    <!--begin: Wizard Step 5-->
-                                    <div class="pb-5" data-wizard-type="step-content">
-                                        <h4 class="mb-10 font-weight-bold text-dark">Enter your Payment Details</h4>
-                                        <div class="row">
-                                            <div class="col-xl-6">
-                                                <!--begin::Input-->
-                                                <div class="form-group">
-                                                    <label>Name on Card</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="ccname" placeholder="Card Name" value="John Wick" />
-                                                    <span class="form-text text-muted">Please enter your Card Name.</span>
-                                                </div>
-                                                <!--end::Input-->
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <!--begin::Input-->
-                                                <div class="form-group">
-                                                    <label>Card Number</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="ccnumber" placeholder="Card Number" value="4444 3333 2222 1111" />
-                                                    <span class="form-text text-muted">Please enter your Address.</span>
-                                                </div>
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xl-4">
-                                                <!--begin::Input-->
-                                                <div class="form-group">
-                                                    <label>Card Expiry Month</label>
-                                                    <input type="number" class="form-control form-control-solid form-control-lg" name="ccmonth" placeholder="Card Expiry Month" value="01" />
-                                                    <span class="form-text text-muted">Please enter your Card Expiry Month.</span>
-                                                </div>
-                                                <!--end::Input-->
-                                            </div>
-                                            <div class="col-xl-4">
-                                                <!--begin::Input-->
-                                                <div class="form-group">
-                                                    <label>Card Expiry Year</label>
-                                                    <input type="number" class="form-control form-control-solid form-control-lg" name="ccyear" placeholder="Card Expire Year" value="21" />
-                                                    <span class="form-text text-muted">Please enter your Card Expiry Year.</span>
-                                                </div>
-                                                <!--end::Input-->
-                                            </div>
-                                            <div class="col-xl-4">
-                                                <!--begin::Input-->
-                                                <div class="form-group">
-                                                    <label>Card CVV Number</label>
-                                                    <input type="password" class="form-control form-control-solid form-control-lg" name="cccvv" placeholder="Card CVV Number" value="123" />
-                                                    <span class="form-text text-muted">Please enter your Card CVV Number.</span>
-                                                </div>
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--end: Wizard Step 5-->
                                     <!--begin: Wizard Step 6-->
                                     <div class="pb-5" data-wizard-type="step-content">
                                         <!--begin::Section-->
-                                        <h4 class="mb-10 font-weight-bold text-dark">Review your Details and Submit</h4>
-                                        <h6 class="font-weight-bolder mb-3">Current Address:</h6>
-                                        <div class="text-dark-50 line-height-lg">
-                                            <div>Address Line 1</div>
-                                            <div>Address Line 2</div>
-                                            <div>Melbourne 3000, VIC, Australia</div>
-                                        </div>
-                                        <div class="separator separator-dashed my-5"></div>
-                                        <!--end::Section-->
-                                        <!--begin::Section-->
-                                        <h6 class="font-weight-bolder mb-3">Delivery Details:</h6>
-                                        <div class="text-dark-50 line-height-lg">
-                                            <div>Package: Complete Workstation (Monitor, Computer, Keyboard &amp; Mouse)</div>
-                                            <div>Weight: 25kg</div>
-                                            <div>Dimensions: 110cm (w) x 90cm (h) x 150cm (L)</div>
-                                        </div>
-                                        <div class="separator separator-dashed my-5"></div>
-                                        <!--end::Section-->
-                                        <!--begin::Section-->
-                                        <h6 class="font-weight-bolder mb-3">Delivery Service Type:</h6>
-                                        <div class="text-dark-50 line-height-lg">
-                                            <div>Overnight Delivery with Regular Packaging</div>
-                                            <div>Preferred Morning (8:00AM - 11:00AM) Delivery</div>
-                                        </div>
-                                        <div class="separator separator-dashed my-5"></div>
-                                        <!--end::Section-->
-                                        <!--begin::Section-->
-                                        <h6 class="font-weight-bolder mb-3">Delivery Address:</h6>
-                                        <div class="text-dark-50 line-height-lg">
-                                            <div>Address Line 1</div>
-                                            <div>Address Line 2</div>
-                                            <div>Preston 3072, VIC, Australia</div>
-                                        </div>
+                                        <h4 class="mb-10 font-weight-bold text-dark">Our Privacy Policy</h4>
+                                        <div class="ex1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique sapiente ex ea nobis minus hic aspernatur unde voluptates, debitis cumque, tempore blanditiis modi laudantium ad harum impedit dignissimos incidunt, eligendi nostrum saepe vero omnis ducimus corrupti! Officiis magnam, deserunt dolorem iusto explicabo debitis quas voluptatibus ullam corporis omnis. Recusandae incidunt cum corporis itaque fugit dolores exercitationem reprehenderit minima quidem labore eveniet facere illum ipsa doloremque, explicabo id eos asperiores harum! Numquam, consectetur molestiae harum facere esse porro odit exercitationem reprehenderit animi, incidunt quibusdam vel hic ullam sed. Veritatis, recusandae corporis! Ducimus mollitia ipsa ratione perferendis modi necessitatibus excepturi quaerat illo laudantium, pariatur eum qui, sunt itaque facilis enim, asperiores incidunt sit cupiditate? Numquam labore quisquam at. Quasi repellat iste id quidem aliquid ipsam dolorum ducimus magni ratione dolore suscipit eos eveniet qui consequatur atque, vitae facilis itaque necessitatibus nihil asperiores non tempore hic! Voluptas unde, numquam odit veritatis, eos, sunt asperiores dolor facilis fuga placeat ex debitis deleniti aperiam commodi temporibus! Fugiat, quidem. Libero corrupti asperiores commodi officia eum, quod quam non incidunt totam enim! Minus a quidem ratione quibusdam! Minima, quod repellendus? Delectus explicabo nam quibusdam eius necessitatibus ratione, quia omnis tempora mollitia ad aperiam molestiae est asperiores! Nam, dolore ipsa doloremque, ipsam voluptates ad sit iure a dignissimos ex nesciunt molestias vel dicta minima magni rerum debitis at atque nostrum deserunt! Aut, omnis illo? Eos iste, quaerat quos voluptatum nemo commodi maxime culpa atque explicabo recusandae! Eos nemo beatae nihil vitae, sequi at ab cupiditate, laudantium error, illo sit blanditiis laboriosam placeat consequuntur illum omnis minima quod et qui repellendus expedita voluptates cumque. Natus, fuga sit. Sunt consequatur non voluptatem necessitatibus magni consequuntur reprehenderit deserunt impedit exercitationem illum quod explicabo, laudantium labore esse saepe, accusantium sequi alias unde earum veniam rem! Placeat consequatur, quo ipsa nobis earum ipsum alias nostrum quod recusandae inventore quae, commodi fuga, nihil laboriosam dignissimos ipsam fugit mollitia. Sit velit ipsam hic. Porro maiores fugit facere perspiciatis eos, iure ut repellat iste non deleniti recusandae deserunt nemo eveniet odio dolore? Perferendis enim consequuntur, commodi quae nostrum odit at odio, nobis soluta tenetur a eveniet itaque fugit tempore accusamus aliquam tempora repellendus esse voluptatibus error veritatis possimus quo amet! Aspernatur exercitationem eos ullam dignissimos ad, error vel similique perspiciatis explicabo maxime nisi officia? Rerum similique ullam, ad saepe accusamus, officiis ratione ducimus illum eius esse odit at minima placeat culpa sunt ut fugiat! Reprehenderit accusamus quia quo sequi vero omnis sapiente, atque possimus ullam ducimus non. Optio quidem consequuntur harum neque sapiente nemo maxime tenetur aspernatur earum, nisi dolores necessitatibus iste debitis incidunt repellat magnam pariatur cupiditate ipsum odio reiciendis fugiat odit. Dicta adipisci fugiat veritatis architecto vel beatae consectetur, sed delectus sunt nostrum. Quibusdam et a optio quam, nihil tempore exercitationem itaque saepe quod labore asperiores impedit nam neque temporibus! Quisquam, praesentium odio possimus magnam, modi, tenetur maiores excepturi voluptatibus consequuntur amet ab placeat quo unde veniam obcaecati dicta atque molestiae explicabo sunt consectetur suscipit laboriosam. Temporibus minus nam numquam quos saepe, quis ducimus.</div>
                                         <!--end::Section-->
                                     </div>
                                     <!--end: Wizard Step 6-->
@@ -926,10 +417,8 @@
     <script>
 
 if(document.getElementById('country').value == "PK"){
-    // alert("HI")
         document.getElementById("nIDCard").style.display = "block";
     }else{
-        // alert("BOO")
         document.getElementById("nIDCard").style.display = "none";
     } 
 document.querySelector('#country').addEventListener('change', function() {
