@@ -15,8 +15,6 @@
 
 </style>
 
-
-
         {{-- Favicon --}}
         <link rel="shortcut icon" href="{{ asset('media/logos/favicon.ico') }}" />
 
@@ -227,7 +225,9 @@
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>Phone</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="phone" value="{{ old('phone') }}" placeholder="phone"  id="phone" />
+                                                    <input type="text"
+                                                    class="form-control form-control-solid form-control-lg" name="phone" value="{{ old('phone') }}" placeholder="phone"  id="phone" />
+                                                    <span id="vPhone">Please enter valid phone number</span>
                                                     <span class="form-text text-muted">Please enter your phone number.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -380,7 +380,7 @@
                                         </div>
                                         <div>
                                             <button type="button" class="btn btn-success font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-submit">Submit</button>
-                                            <button type="button" class="btn btn-primary font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-next">Next</button>
+                                            <button id="nextBtn" type="button" class="btn btn-primary font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-next">Next</button>
                                         </div>
                                     </div>
                                     <!--end: Wizard Actions-->
@@ -417,10 +417,13 @@
     <script>
 
 if(document.getElementById('country').value == "PK"){
-        document.getElementById("nIDCard").style.display = "block";
-    }else{
-        document.getElementById("nIDCard").style.display = "none";
-    } 
+    document.getElementById("nIDCard").style.display = "block";
+}else{
+    document.getElementById("nIDCard").style.display = "none";
+} 
+
+
+
 document.querySelector('#country').addEventListener('change', function() {
     if(document.getElementById('country').value == "PK"){
         document.getElementById("nIDCard").style.display = "block";
@@ -431,14 +434,140 @@ document.querySelector('#country').addEventListener('change', function() {
 	
 });
 
+// var country = document.getElementById("country").value;
+// if(country == "CA"){
+//     var phone = document.getElementById("phone").value;
+//     if(validatePhone(phone)){
+//         alert("hi");
+//     }
+// }
+
+// function validatePhone(txtPhone) {
+//     var a = document.getElementById(txtPhone).value;
+//     var filter = /^(1\s?)?((\([0-9]{3}\))|[0-9]{3})[\s\-]?[\0-9]{3}[\s\-]?[0-9]{4}$/;
+//     if (filter.test(a)) {
+//         return true;
+//     }
+//     else {
+//         alert("nop");
+//         return false;
+//     }
+// }
+
+
+// var client = new XMLHttpRequest();
+// client.open("GET", "http://api.zippopotam.us/PK/50700", true);
+// client.onreadystatechange = function() {
+// 	if(client.readyState == 4) {
+// 		alert(client.responseText);
+// 	};
+// };
+// client.send();
     </script>
 
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script> --}}
+
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script> --}}
+    <script type='text/javascript' src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
+    {{-- <script src="{{URL::asset('js/input-mask.js')}}"></script> --}}
+
+
+    <script>
+        document.getElementById("vPhone").style.display = "none";
+        document.getElementById("vPhone").style.color = "red";
+        $j=jQuery.noConflict();
+        // $j.inputmask.definitions['9'] = '';
+        // $j.inputmask.definitions['x'] = '[0-9]';
+        // $.mask.definitions['9'] = '';
+        // $.mask.definitions['x'] = '[0-9]';
+        // $(document).ready(function(){
+        //     // $j('#phone').inputmask('(999)-999-9999');
+        //     $j('#phone').inputmask('+92-999-9999');
+        //     // $('.phone_number_2').inputmask('(99)-9999-9999');
+        //     // $('.phone_number_3').inputmask('+99-9999999999');
+        // });
+        $('body').on('keyup', '#phone', function () {
+            var phone = $(this).val();
+         
+            var ca = /^((\+1))-((\([0-9 -]{3}[- ]?\))|[0-9 -]{3}[- ]?)[\s\-]?[\0-9 -]{3}[- ]?[\s\-]?[0-9]{4}$/;
+            var pk = /^((\+92)|(0092))-{0,1}\d{4}[- ]?-{0,1}\d{7}$|^\d{11}$|^\d{4}-\d{7}$/;
+            var us = /^((\+1))-((\([0-9 -]{3}[- ]?\))|[0-9 -]{3}[- ]?)[\s\-]?[\0-9 -]{3}[- ]?[\s\-]?[0-9]{4}$/;
+            var ae = /^((\+971))-((\([0-9]{2}[- ]?\))|[0-9 -]{3}[- ]?)[\s\-]?[\0-9 -]{4}[- ]?[\s\-]?[0-9]{4}$/;
+
+    var country = document.getElementById("country").value;
+    if(country == 'CA'){
+        // $j('#phone').inputmask('(9)-999-999-9999');
+        $j('#phone').inputmask('+1-999-999-9999');
+
+        if(phone.match(ca))
+        {
+            document.getElementById("nextBtn").disabled = false;
+            document.getElementById("vPhone").style.display = "none";
+        }else{
+            document.getElementById("nextBtn").disabled = true;
+            document.getElementById("vPhone").style.display = "block";
+        }
+    }
+    if(country == 'PK'){
+        $j('#phone').inputmask('0399-9999999');
+
+        if($(this).val().match(pk))
+        {
+            document.getElementById("nextBtn").disabled = false;
+
+            document.getElementById("vPhone").style.display = "none";
+          
+        }else{
+            document.getElementById("nextBtn").disabled = true;
+
+            document.getElementById("vPhone").style.display = "block";
+        }
+    }
+    if(country == 'AE'){
+        $j('#phone').inputmask('+\\971-99-999-9999');
+        if($(this).val().match(ae))
+        {
+            document.getElementById("nextBtn").disabled = false;
+
+            document.getElementById("vPhone").style.display = "none";
+
+        }else{
+            document.getElementById("vPhone").style.display = "block";
+            document.getElementById("nextBtn").disabled = true;
+
+        }
+    }
+    if(country == 'US'){
+        $j('#phone').inputmask('+1-999-999-9999');
+
+
+        if($(this).val().match(us))
+        {
+            document.getElementById("nextBtn").disabled = false;
+
+            document.getElementById("vPhone").style.display = "none";
+            
+        }else{
+            document.getElementById("nextBtn").disabled = true;
+
+            document.getElementById("vPhone").style.display = "block";
+        }
+    }
+    });
+
+
+
+    </script>
+
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/formvalidation/0.6.2-dev/js/formValidation.min.js" integrity="sha512-DlXWqMPKer3hZZMFub5hMTfj9aMQTNDrf0P21WESBefJSwvJguz97HB007VuOEecCApSMf5SY7A7LkQwfGyVfg==" crossorigin="anonymous"></script> --}}
 <script src="{{URL::asset('js/form-controls.js')}}"></script>
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script> --}}
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js" integrity="sha512-sR3EKGp4SG8zs7B0MEUxDeq8rw9wsuGVYNfbbO/GLCJ59LBE4baEfQBVsP2Y/h2n8M19YV1mujFANO1yA3ko7Q==" crossorigin="anonymous"></script> --}}
 <script src="{{URL::asset('js/wizard-2.js')}}"></script>
 {{-- <script src="{{URL::asset('js/FormValidation.full.js')}}"></script> --}}
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script> --}}
+
+
+
 @endsection
