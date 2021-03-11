@@ -2,6 +2,23 @@
 
 @section('content')
 <style>
+    .kt-checkbox {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 10px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 1rem;
+            -webkit-transition: all .3s ease;
+            transition: all .3s ease;
+        }
+
+        #privacyContent {
+            height: 300px;
+            position: relative;
+            border-top: 1px solid #eae7e7;
+
+        }
      .success-muted-note {
             color: #34bfa3 !important;
             font-weight: 600 !important;
@@ -133,8 +150,8 @@
                                         </span>
                                     </div>
                                     <div class="wizard-label">
-                                        <h3 class="wizard-title">Completed!</h3>
-                                        <div class="wizard-desc">Review and Submit</div>
+                                        <h3 class="wizard-title">Privacy Policy</h3>
+                                        <div class="wizard-desc">Our Privacy Policy</div>
                                     </div>
                                 </div>
                             </div>
@@ -295,7 +312,7 @@
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>Postcode</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="post_code" placeholder="Postcode" value="{{old('post_code')}}" />
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="post_code" placeholder="Postcode" value="{{old('post_code')}}" id="post_code"  />
                                                     <span class="form-text text-muted">Please enter your Postcode.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -304,7 +321,7 @@
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>City</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="city" placeholder="City" value="{{old('city')}}" />
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="city" id="city" placeholder="City" value="{{old('city')}}" />
                                                     <span class="form-text text-muted">Please enter your City.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -315,7 +332,8 @@
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>State</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="state" placeholder="State" value="{{old('state')}}" />
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="state" id="state" placeholder="State" value="{{old('state')}}" />
+                                                    <span id="pText">Please enter a valid state</span>
                                                     <span class="form-text text-muted">Please enter your State.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -355,7 +373,7 @@
                                             <div id="nIDCard" class="col-xl-6">
                                                 <div class="form-group">
                                                     <label>National Id Card Number</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="nic" placeholder="NIC" value="Business" />
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="nic" placeholder="NIC" value="{{old('nic')}}" />
                                                     <span class="form-text text-muted">Please enter your National Id Card Number.</span>
                                                 </div>
                                             </div>
@@ -369,8 +387,21 @@
                                     <div class="pb-5" data-wizard-type="step-content">
                                         <!--begin::Section-->
                                         <h4 class="mb-10 font-weight-bold text-dark">Our Privacy Policy</h4>
-                                        <div class="ex1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique sapiente ex ea nobis minus hic aspernatur unde voluptates, debitis cumque, tempore blanditiis modi laudantium ad harum impedit dignissimos incidunt, eligendi nostrum saepe vero omnis ducimus corrupti! Officiis magnam, deserunt dolorem iusto explicabo debitis quas voluptatibus ullam corporis omnis. Recusandae incidunt cum corporis itaque fugit dolores exercitationem reprehenderit minima quidem labore eveniet facere illum ipsa doloremque, explicabo id eos asperiores harum! Numquam, consectetur molestiae harum facere esse porro odit exercitationem reprehenderit animi, incidunt quibusdam vel hic ullam sed. Veritatis, recusandae corporis! Ducimus mollitia ipsa ratione perferendis modi necessitatibus excepturi quaerat illo laudantium, pariatur eum qui, sunt itaque facilis enim, asperiores incidunt sit cupiditate? Numquam labore quisquam at. Quasi repellat iste id quidem aliquid ipsam dolorum ducimus magni ratione dolore suscipit eos eveniet qui consequatur atque, vitae facilis itaque necessitatibus nihil asperiores non tempore hic! Voluptas unde, numquam odit veritatis, eos, sunt asperiores dolor facilis fuga placeat ex debitis deleniti aperiam commodi temporibus! Fugiat, quidem. Libero corrupti asperiores commodi officia eum, quod quam non incidunt totam enim! Minus a quidem ratione quibusdam! Minima, quod repellendus? Delectus explicabo nam quibusdam eius necessitatibus ratione, quia omnis tempora mollitia ad aperiam molestiae est asperiores! Nam, dolore ipsa doloremque, ipsam voluptates ad sit iure a dignissimos ex nesciunt molestias vel dicta minima magni rerum debitis at atque nostrum deserunt! Aut, omnis illo? Eos iste, quaerat quos voluptatum nemo commodi maxime culpa atque explicabo recusandae! Eos nemo beatae nihil vitae, sequi at ab cupiditate, laudantium error, illo sit blanditiis laboriosam placeat consequuntur illum omnis minima quod et qui repellendus expedita voluptates cumque. Natus, fuga sit. Sunt consequatur non voluptatem necessitatibus magni consequuntur reprehenderit deserunt impedit exercitationem illum quod explicabo, laudantium labore esse saepe, accusantium sequi alias unde earum veniam rem! Placeat consequatur, quo ipsa nobis earum ipsum alias nostrum quod recusandae inventore quae, commodi fuga, nihil laboriosam dignissimos ipsam fugit mollitia. Sit velit ipsam hic. Porro maiores fugit facere perspiciatis eos, iure ut repellat iste non deleniti recusandae deserunt nemo eveniet odio dolore? Perferendis enim consequuntur, commodi quae nostrum odit at odio, nobis soluta tenetur a eveniet itaque fugit tempore accusamus aliquam tempora repellendus esse voluptatibus error veritatis possimus quo amet! Aspernatur exercitationem eos ullam dignissimos ad, error vel similique perspiciatis explicabo maxime nisi officia? Rerum similique ullam, ad saepe accusamus, officiis ratione ducimus illum eius esse odit at minima placeat culpa sunt ut fugiat! Reprehenderit accusamus quia quo sequi vero omnis sapiente, atque possimus ullam ducimus non. Optio quidem consequuntur harum neque sapiente nemo maxime tenetur aspernatur earum, nisi dolores necessitatibus iste debitis incidunt repellat magnam pariatur cupiditate ipsum odio reiciendis fugiat odit. Dicta adipisci fugiat veritatis architecto vel beatae consectetur, sed delectus sunt nostrum. Quibusdam et a optio quam, nihil tempore exercitationem itaque saepe quod labore asperiores impedit nam neque temporibus! Quisquam, praesentium odio possimus magnam, modi, tenetur maiores excepturi voluptatibus consequuntur amet ab placeat quo unde veniam obcaecati dicta atque molestiae explicabo sunt consectetur suscipit laboriosam. Temporibus minus nam numquam quos saepe, quis ducimus.</div>
+                                        <div id="privacyContent" data-wheel-propagation="true">
+                                            <p><b>Privacy Policy</b></p>
+                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur sint voluptate assumenda non quo laboriosam dolores recusandae nulla. Quas quo ducimus officiis, minima ipsa tempore ullam! Deleniti, cum dolore sunt tempore accusamus quae voluptatem, magnam sapiente sint inventore esse facere expedita explicabo nulla aspernatur non ea. Quaerat suscipit nostrum amet esse magnam earum, enim iusto distinctio voluptas, aliquid aspernatur! Totam corrupti, molestiae alias, fuga earum tempore ea iusto aperiam perspiciatis assumenda sapiente maiores atque esse. Ipsam molestias corporis totam. Dicta inventore enim aut possimus obcaecati ullam autem accusamus. Delectus necessitatibus quam at? Cumque est eum nihil dicta saepe illo, accusamus exercitationem fuga dolores obcaecati quia ea, magni consequatur voluptatum suscipit. Quasi saepe illo, debitis repellat dignissimos non delectus omnis earum, est suscipit vel voluptate libero labore adipisci nam velit in deleniti laudantium ab! Et dolore, laudantium obcaecati hic sunt doloremque sint minima soluta, beatae placeat, cumque reprehenderit voluptatibus qui ea! Inventore, culpa? Fuga quas at corrupti, pariatur blanditiis repellat debitis fugit repudiandae omnis quibusdam reprehenderit delectus eligendi incidunt, officiis odit vel! Eos alias illo nam doloremque, quas voluptatem ipsam reprehenderit neque. Quos aliquid fuga ex? Dolorem tempora autem nesciunt at reprehenderit quidem ducimus hic corporis. Numquam cupiditate quas, veritatis accusamus provident officia autem ipsa! Maxime deleniti facere reprehenderit perspiciatis accusamus amet, illo, et a praesentium dolore omnis consequatur natus, nemo cum voluptatem! At reprehenderit voluptatem soluta aliquam quos possimus nam reiciendis accusantium magnam ad sed inventore itaque animi, cumque nemo? Iusto sit amet fuga dignissimos, quibusdam voluptatum nemo consequuntur dolorem saepe! Inventore, nam illum? Possimus facilis velit excepturi, voluptatum enim nihil, aliquam delectus odit magni vitae facere amet corporis explicabo suscipit alias distinctio. Blanditiis quos et ex, mollitia, qui accusantium hic aperiam, exercitationem rerum magni nulla doloribus nostrum. Laborum tempora assumenda voluptatibus similique numquam ipsa delectus maiores architecto, consequuntur voluptatem soluta enim nisi nihil aut totam labore. Itaque dolorum quis exercitationem aspernatur illo adipisci cum nemo distinctio nam nostrum vitae odio voluptas aliquid cupiditate quae voluptates ea inventore at, error libero aut atque. Veniam quisquam ad beatae illum provident facere expedita tempora. Nulla dolor unde inventore! Quis praesentium non, illo, repudiandae ipsam tempore ratione commodi porro natus debitis similique? Sapiente sed voluptates repellat saepe necessitatibus soluta, aut nulla numquam, tempore quibusdam delectus tenetur ab, nostrum nobis minima? Quibusdam aliquid beatae, ducimus reprehenderit possimus blanditiis quia recusandae doloremque voluptatum repellat perferendis, obcaecati nisi. Dignissimos at aliquam provident totam voluptates laboriosam. Perferendis voluptatem magni est eos architecto qui dolor quia porro in dignissimos quam sequi, harum ipsam libero quisquam quidem neque earum! Voluptate soluta eaque quam nam placeat provident recusandae voluptatum aut animi rem non maiores officia accusamus delectus, dolorem voluptas omnis eos reprehenderit, doloremque explicabo in iure a laboriosam! Perspiciatis tempora, accusantium molestiae reprehenderit beatae, possimus corporis praesentium, facilis voluptates nam voluptatum vel magnam? Dolor optio eius quaerat odit, dignissimos consequatur deserunt eum similique iusto, sint et dolore animi quia consectetur voluptatibus enim tenetur cumque iure nostrum expedita perferendis praesentium voluptates tempore! Maiores nam perferendis harum quasi consectetur provident laudantium maxime earum explicabo, quas enim delectus labore ipsa? Voluptatum aspernatur, itaque voluptate, explicabo unde numquam adipisci laudantium omnis corrupti vel nisi quo ratione nemo repellendus tempora ab nulla? Sed, molestias! Sunt praesentium excepturi eum voluptatem aliquid quae odio ducimus assumenda quasi vero odit explicabo blanditiis esse facere quam maiores, beatae architecto necessitatibus nemo? Modi dolor sunt praesentium voluptatibus. Repellat dolore quaerat consequatur rem harum cum itaque quam nobis eligendi reiciendis, deleniti, animi sit fuga fugit et, exercitationem veritatis similique possimus minima. Quisquam rerum dolores delectus, cupiditate omnis nisi odio consequatur aut earum placeat quis amet modi facilis sed, cumque commodi! Facere!
+                                        </div>
+
                                         <!--end::Section-->
+                                        <div class="row mt-15">
+                                            <div class="form-group col-lg-5 col-md-5 col-sm-12">
+                                                <label class="kt-checkbox">
+                                                    <input id="iagreeeBox" type="checkbox">
+                                                    I agree & accept the conditions
+                                                    <span></span>
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                     <!--end: Wizard Step 6-->
                                     <!--begin: Wizard Actions-->
@@ -379,7 +410,7 @@
                                             <button type="button" class="btn btn-light-primary font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-prev">Previous</button>
                                         </div>
                                         <div>
-                                            <button type="button" class="btn btn-success font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-submit">Submit</button>
+                                            <button id="submitRegistration" type="button" class="btn btn-success font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-submit">Submit</button>
                                             <button id="nextBtn" type="button" class="btn btn-primary font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-next">Next</button>
                                         </div>
                                     </div>
@@ -433,6 +464,27 @@ document.querySelector('#country').addEventListener('change', function() {
 
 	
 });
+document.getElementById("submitRegistration").disabled = true;
+
+$('body').on('click', '#iagreeeBox', function () {
+    if ($(this).prop('checked') == true) {
+       
+        // $('#submitRegistration').removeAttr('disabled');
+        document.getElementById("submitRegistration").disabled = false;
+    } else {
+     
+        document.getElementById("submitRegistration").disabled = true;
+    }
+});
+</script>
+
+<script src="{{URL::asset('js/perferct-scroll.js')}}"></script>
+<script>
+    const ps = new PerfectScrollbar('#privacyContent', {
+        wheelSpeed: 1,
+        wheelPropagation: true,
+        minScrollbarLength: 1
+});
 
 // var country = document.getElementById("country").value;
 // if(country == "CA"){
@@ -475,7 +527,9 @@ document.querySelector('#country').addEventListener('change', function() {
 
     <script>
         document.getElementById("vPhone").style.display = "none";
+        document.getElementById("pText").style.display = "none";
         document.getElementById("vPhone").style.color = "red";
+        document.getElementById("pText").style.color = "red";
         $j=jQuery.noConflict();
         // $j.inputmask.definitions['9'] = '';
         // $j.inputmask.definitions['x'] = '[0-9]';
@@ -555,6 +609,88 @@ document.querySelector('#country').addEventListener('change', function() {
         }
     }
     });
+
+
+    $('body').on('keyup', '#post_code', function () {
+
+    var country = document.getElementById("country").value;
+    if(country == 'CA'){
+        $j('#post_code').inputmask('A9A');
+        // var pc = document.getElementById("post_code").value;
+        // var client = new XMLHttpRequest();
+        //     client.open("GET", `http://api.zippopotam.us/CA/${pc}`, true);
+        //     client.onreadystatechange = function() {
+        //         if(client.readyState == 4) {
+        //             var data = JSON.parse(client.responseText);
+        //             console.log(data['places'][0]['state']);
+        //             if(data){
+        //                 document.getElementById('state').value = data['places'][0]['state'];
+        //                 document.getElementById('city').value = data['places'][0]['place name'];
+        //                 document.getElementById("nextBtn").disabled = false;
+        //                 document.getElementById("pText").style.display = "none";
+        //             }
+        //         }else{
+        //                 document.getElementById("nextBtn").disabled = true;
+        //                 document.getElementById("pText").style.display = "block";
+        //         }
+        //     };
+        //     client.send();
+    }
+    if(country == 'PK'){
+        $j('#post_code').inputmask('99999');
+        // var pc = document.getElementById("post_code").value;
+        // var client = new XMLHttpRequest();
+        //     client.open("GET", `http://api.zippopotam.us/PK/${pc}`, true);
+        //     client.onreadystatechange = function() {
+        //         if(client.readyState == 4) {
+        //             var data = JSON.parse(client.responseText);
+        //             console.log(data['places'][0]['state']);
+        //             if(data){
+        //                 document.getElementById('state').value = data['places'][0]['state'];
+        //                 document.getElementById('city').value = '';
+        //                 document.getElementById("nextBtn").disabled = false;
+        //                 document.getElementById("pText").style.display = "none";
+        //             }
+        //         }else{
+        //                 document.getElementById("nextBtn").disabled = true;
+        //                 document.getElementById("pText").style.display = "block";
+        //         }
+        //     };
+        //     client.send();
+       
+    }
+    if(country == 'AE'){
+        $j('#post_code').inputmask('NO-POST\\AL-CODE');
+
+        
+    }
+    if(country == 'US'){
+        $j('#post_code').inputmask('99999');
+        // var pc = document.getElementById("post_code").value;
+        // var client = new XMLHttpRequest();
+        //     client.open("GET", `http://api.zippopotam.us/US/${pc}`, true);
+        //     client.onreadystatechange = function() {
+        //         if(client.readyState == 4) {
+        //             var data = JSON.parse(client.responseText);
+        //             console.log(data['places'][0]['state']);
+        //             if(data){
+        //                 document.getElementById('state').value = data['places'][0]['state'];
+        //                 document.getElementById('city').value = data['places'][0]['place name'];
+        //                 document.getElementById("nextBtn").disabled = false;
+        //                 document.getElementById("pText").style.display = "none";
+        //             }
+        //         }else{
+        //                 document.getElementById("nextBtn").disabled = true;
+        //                 document.getElementById("pText").style.display = "block";
+        //         }
+        //     };
+        //     client.send();
+    }
+    });
+
+
+
+    
 
 
 
