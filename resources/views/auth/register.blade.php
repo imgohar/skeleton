@@ -616,47 +616,47 @@ $('body').on('click', '#iagreeeBox', function () {
     var country = document.getElementById("country").value;
     if(country == 'CA'){
         $j('#post_code').inputmask('A9A');
-        // var pc = document.getElementById("post_code").value;
-        // var client = new XMLHttpRequest();
-        //     client.open("GET", `http://api.zippopotam.us/CA/${pc}`, true);
-        //     client.onreadystatechange = function() {
-        //         if(client.readyState == 4) {
-        //             var data = JSON.parse(client.responseText);
-        //             console.log(data['places'][0]['state']);
-        //             if(data){
-        //                 document.getElementById('state').value = data['places'][0]['state'];
-        //                 document.getElementById('city').value = data['places'][0]['place name'];
-        //                 document.getElementById("nextBtn").disabled = false;
-        //                 document.getElementById("pText").style.display = "none";
-        //             }
-        //         }else{
-        //                 document.getElementById("nextBtn").disabled = true;
-        //                 document.getElementById("pText").style.display = "block";
-        //         }
-        //     };
-        //     client.send();
+        var pc = document.getElementById("post_code").value;
+        var client = new XMLHttpRequest();
+            client.open("GET", `http://api.zippopotam.us/CA/${pc}`, true);
+            client.onreadystatechange = function() {
+                if(client.readyState == 4) {
+                    var data = JSON.parse(client.responseText);
+                    console.log(data['places'][0]['state']);
+                    if(data){
+                        document.getElementById('state').value = data['places'][0]['state'];
+                        document.getElementById('city').value = data['places'][0]['place name'];
+                        document.getElementById("submitRegistration").disabled = false;
+                        document.getElementById("pText").style.display = "none";
+                    }
+                }else{
+                        document.getElementById("submitRegistration").disabled = true;
+                        document.getElementById("pText").style.display = "block";
+                }
+            };
+            client.send();
     }
     if(country == 'PK'){
         $j('#post_code').inputmask('99999');
-        // var pc = document.getElementById("post_code").value;
-        // var client = new XMLHttpRequest();
-        //     client.open("GET", `http://api.zippopotam.us/PK/${pc}`, true);
-        //     client.onreadystatechange = function() {
-        //         if(client.readyState == 4) {
-        //             var data = JSON.parse(client.responseText);
-        //             console.log(data['places'][0]['state']);
-        //             if(data){
-        //                 document.getElementById('state').value = data['places'][0]['state'];
-        //                 document.getElementById('city').value = '';
-        //                 document.getElementById("nextBtn").disabled = false;
-        //                 document.getElementById("pText").style.display = "none";
-        //             }
-        //         }else{
-        //                 document.getElementById("nextBtn").disabled = true;
-        //                 document.getElementById("pText").style.display = "block";
-        //         }
-        //     };
-        //     client.send();
+        var pc = document.getElementById("post_code").value;
+        var client = new XMLHttpRequest();
+            client.open("GET", `http://api.zippopotam.us/PK/${pc}`, true);
+            client.onreadystatechange = function() {
+                if(client.readyState == 4) {
+                    var data = JSON.parse(client.responseText);
+                    console.log(data['places'][0]['state']);
+                    if(data){
+                        document.getElementById('state').value = data['places'][0]['state'];
+                        document.getElementById('city').value = '';
+                        document.getElementById("submitRegistration").disabled = false;
+                        document.getElementById("pText").style.display = "none";
+                    }
+                }else{
+                        document.getElementById("submitRegistration").disabled = true;
+                        document.getElementById("pText").style.display = "block";
+                }
+            };
+            client.send();
        
     }
     if(country == 'AE'){
@@ -666,25 +666,25 @@ $('body').on('click', '#iagreeeBox', function () {
     }
     if(country == 'US'){
         $j('#post_code').inputmask('99999');
-        // var pc = document.getElementById("post_code").value;
-        // var client = new XMLHttpRequest();
-        //     client.open("GET", `http://api.zippopotam.us/US/${pc}`, true);
-        //     client.onreadystatechange = function() {
-        //         if(client.readyState == 4) {
-        //             var data = JSON.parse(client.responseText);
-        //             console.log(data['places'][0]['state']);
-        //             if(data){
-        //                 document.getElementById('state').value = data['places'][0]['state'];
-        //                 document.getElementById('city').value = data['places'][0]['place name'];
-        //                 document.getElementById("nextBtn").disabled = false;
-        //                 document.getElementById("pText").style.display = "none";
-        //             }
-        //         }else{
-        //                 document.getElementById("nextBtn").disabled = true;
-        //                 document.getElementById("pText").style.display = "block";
-        //         }
-        //     };
-        //     client.send();
+        var pc = document.getElementById("post_code").value;
+        var client = new XMLHttpRequest();
+            client.open("GET", `http://api.zippopotam.us/US/${pc}`, true);
+            client.onreadystatechange = function() {
+                if(client.readyState == 4) {
+                    var data = JSON.parse(client.responseText);
+                    console.log(data['places'][0]['state']);
+                    if(data){
+                        document.getElementById('state').value = data['places'][0]['state'];
+                        document.getElementById('city').value = data['places'][0]['place name'];
+                        document.getElementById("submitRegistration").disabled = false;
+                        document.getElementById("pText").style.display = "none";
+                    }
+                }else{
+                        document.getElementById("submitRegistration").disabled = true;
+                        document.getElementById("pText").style.display = "block";
+                }
+            };
+            client.send();
     }
     });
 
