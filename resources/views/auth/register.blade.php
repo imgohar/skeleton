@@ -313,6 +313,7 @@
                                                 <div class="form-group">
                                                     <label>Postcode</label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg" name="post_code" placeholder="Postcode" value="{{old('post_code')}}" id="post_code"  />
+                                                    <span id="pText">Please enter a valid postal code</span>
                                                     <span class="form-text text-muted">Please enter your Postcode.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -333,7 +334,7 @@
                                                 <div class="form-group">
                                                     <label>State</label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg" name="state" id="state" placeholder="State" value="{{old('state')}}" />
-                                                    <span id="pText">Please enter a valid state</span>
+                                                    
                                                     <span class="form-text text-muted">Please enter your State.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -373,7 +374,7 @@
                                             <div id="nIDCard" class="col-xl-6">
                                                 <div class="form-group">
                                                     <label>National Id Card Number</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="nic" placeholder="NIC" value="{{old('nic')}}" />
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="nic" id="nic" placeholder="NIC" value="{{old('nic')}}" />
                                                     <span class="form-text text-muted">Please enter your National Id Card Number.</span>
                                                 </div>
                                             </div>
@@ -610,6 +611,9 @@ $('body').on('click', '#iagreeeBox', function () {
     }
     });
 
+    $('body').on('keyup', '#nic', function () {
+        $j('#nic').inputmask('99999-9999999-9');
+    });
 
     $('body').on('keyup', '#post_code', function () {
 
@@ -617,6 +621,10 @@ $('body').on('click', '#iagreeeBox', function () {
     if(country == 'CA'){
         $j('#post_code').inputmask('A9A');
         var pc = document.getElementById("post_code").value;
+        if(pc === ""){
+            document.getElementById('state').value = '';
+            document.getElementById('city').value = '';
+        }
         var client = new XMLHttpRequest();
             client.open("GET", `http://api.zippopotam.us/CA/${pc}`, true);
             client.onreadystatechange = function() {
@@ -639,6 +647,10 @@ $('body').on('click', '#iagreeeBox', function () {
     if(country == 'PK'){
         $j('#post_code').inputmask('99999');
         var pc = document.getElementById("post_code").value;
+        if(pc === ""){
+            document.getElementById('state').value = '';
+            document.getElementById('city').value = '';
+        }
         var client = new XMLHttpRequest();
             client.open("GET", `http://api.zippopotam.us/PK/${pc}`, true);
             client.onreadystatechange = function() {
@@ -660,13 +672,23 @@ $('body').on('click', '#iagreeeBox', function () {
        
     }
     if(country == 'AE'){
-        $j('#post_code').inputmask('NO-POST\\AL-CODE');
+        // $j('#post_code').inputmask('NO-POST\\AL-CODE');
+        // $('#post_code').value('No postal code');
+        var pc = document.getElementById("post_code").value;
+        if(pc == ""){
+            document.getElementById('state').value = '';
+            document.getElementById('city').value = '';
+        }
 
         
     }
     if(country == 'US'){
         $j('#post_code').inputmask('99999');
         var pc = document.getElementById("post_code").value;
+        if(pc === ""){
+            document.getElementById('state').value = '';
+            document.getElementById('city').value = '';
+        }
         var client = new XMLHttpRequest();
             client.open("GET", `http://api.zippopotam.us/US/${pc}`, true);
             client.onreadystatechange = function() {
