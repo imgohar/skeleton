@@ -40,6 +40,11 @@ class GoogleController extends Controller
                 return redirect('/');
      
             }else{
+                if($us = User::where('email',$user->email)->first()){
+                    Auth::login($us);
+                    return redirect('/');
+                }
+
                 $newUser = User::create([
                     'fname' => $user->name,
                     'email' => $user->email,

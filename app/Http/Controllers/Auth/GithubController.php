@@ -40,6 +40,11 @@ class GithubController extends Controller
                 return redirect('/');
      
             }else{
+                if($us = User::where('email',$user->email)->first()){
+                    Auth::login($us);
+                    return redirect('/');
+                }
+
                 // return $user->name;
                 $newUser = User::create([
                     'fname' => $user->nickname,
@@ -49,7 +54,7 @@ class GithubController extends Controller
                     'email_verified_at' => now(),
                 ]);
                 $newUser->markEmailAsVerified();
-    
+                    
                 Auth::login($newUser);
                 return redirect('/');
             }
