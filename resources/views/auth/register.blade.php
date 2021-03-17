@@ -13,6 +13,11 @@
             transition: all .3s ease;
         }
 
+        .star-red{
+            color: red;
+            font-size: 0.8em; 
+        }
+
         #privacyContent {
             height: 300px;
             position: relative;
@@ -103,8 +108,8 @@
                                         </span>
                                     </div>
                                     <div class="wizard-label">
-                                        <h3 class="wizard-title">Setup Locations</h3>
-                                        <div class="wizard-desc">Choose Your Location Map</div>
+                                        <h3 class="wizard-title">Personal Details</h3>
+                                        <div class="wizard-desc">Enter your personal details</div>
                                     </div>
                                 </div>
                             </div>
@@ -172,28 +177,15 @@
                                         <!--begin::Input-->
                                         <!--begin::Select-->
                                        
-                                            
-                                        <div class="col-lg-4 offset-lg-4">
-                                            <div class="form-group">
-                                                <label>Select Your Country</label>
-                                                <select id="country" name="country" class="form-control form-control-solid form-control-lg">
-                                                    
-                                                    <option value="CA">🇨🇦  Canada</option>
-                                                    
-                                                    <option value="PK">🇵🇰  Pakistan</option>
-                                                    
-                                                    <option value="AE">🇦🇪  United Arab Emirates</option>
-                                                    
-                                                    <option value="US">🇺🇸  United States</option>
-                                                    
-                                                </select>
-                                            </div>
+                                        <div class="row">
+                                          
+                                        
                                         </div> 
                                         <div class="row">
 
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label>First Name</label>
+                                                <label>First Name <span class="star-red">*</span></label>
                                                 <input type="text" class="form-control form-control-solid form-control-lg" name="fname" placeholder="First Name" value="{{ old('fname') }}" />
                                                 <span class="form-text text-muted">Please enter your first name.</span>
                                             </div>
@@ -211,7 +203,7 @@
                                         
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label>Last Name</label>
+                                                <label>Last Name<span class="star-red">*</span></label>
                                                 <input type="text" class="form-control form-control-solid form-control-lg" name="lname" placeholder="Last Name" value="{{ old('lname') }}" />
                                                 <span class="form-text text-muted">Please enter your last name.</span>
                                             </div>
@@ -226,7 +218,7 @@
                                             <div class="col-xl-6">
                                                 <!--begin::Input-->
                                                 <div class="form-group">
-                                                    <label>Email</label>
+                                                    <label>Email<span class="star-red">*</span></label>
                                                     <input type="email" class="form-control form-control-solid form-control-lg" name="email" value="{{ old('email') }}" placeholder="Email"  />
                                                     @error('email')
                                                         <span class="text-danger form-text" role="alert">
@@ -237,17 +229,21 @@
                                                 </div>
                                                 <!--end::Input-->
                                             </div>
-                                            
-                                            <div class="col-xl-6">
-                                                <!--begin::Input-->
+                                            <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <label>Phone</label>
-                                                    <input type="text"
-                                                    class="form-control form-control-solid form-control-lg" name="phone" value="{{ old('phone') }}" placeholder="phone"  id="phone" />
-                                                    <span id="vPhone">Please enter valid phone number</span>
-                                                    <span class="form-text text-muted">Please enter your phone number.</span>
+                                                    <label>Select Your Country<span class="star-red">*</span> </label>
+                                                    <select id="country" name="country" class="form-control form-control-solid form-control-lg">
+                                                        
+                                                        <option value="CA">🇨🇦  Canada</option>
+                                                        
+                                                        <option value="PK">🇵🇰  Pakistan</option>
+                                                        
+                                                        <option value="AE">🇦🇪  United Arab Emirates</option>
+                                                        
+                                                        <option value="US">🇺🇸  United States</option>
+                                                        
+                                                    </select>
                                                 </div>
-                                                <!--end::Input-->
                                             </div>
                                         </div>
 
@@ -256,7 +252,7 @@
                                             <div class="col-xl-6">
                                                 <!--begin::Input-->
                                                 <div class="form-group">
-                                                    <label>Password</label>
+                                                    <label>Password<span class="star-red">*</span></label>
                                                     <input type="password" id="pass" class="form-control form-control-solid form-control-lg" name="password" placeholder="Password"  />
                                                    
                                                     <span class="form-text" id="pass_upper_note"> 1 Uppercase</span>
@@ -274,7 +270,7 @@
                                             <div class="col-xl-6">
                                                 <!--begin::Input-->
                                                 <div class="form-group">
-                                                    <label>Confirm Password</label>
+                                                    <label>Confirm Password<span class="star-red">*</span></label>
                                                     <input type="password" class="form-control form-control-solid form-control-lg" name="cpassword" placeholder="confirm password" id="cpassword" />
                                                     <span class="form-text text-muted">Please confirm your password.</span>
                                                 </div>
@@ -291,7 +287,7 @@
                                             <div class="col-xl-6">
                                                 <!--begin::Input-->
                                                 <div class="form-group">
-                                                    <label>Address Line 1</label>
+                                                    <label>Address Line 1<span class="star-red">*</span> </label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg" name="address_1" placeholder="Address Line 1" value="{{old('address_1')}}" />
                                                     <span class="form-text text-muted">Please enter your Address.</span>
                                                 </div>
@@ -311,7 +307,7 @@
                                             <div class="col-xl-6">
                                                 <!--begin::Input-->
                                                 <div class="form-group">
-                                                    <label>Postcode</label>
+                                                    <label>Postcode<span class="star-red">*</span> </label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg" name="post_code" placeholder="Postcode" value="{{old('post_code')}}" id="post_code"  />
                                                     <span id="pText">Please enter a valid postal code</span>
                                                     <span class="form-text text-muted">Please enter your Postcode.</span>
@@ -321,7 +317,7 @@
                                             <div class="col-xl-6">
                                                 <!--begin::Input-->
                                                 <div class="form-group">
-                                                    <label>City</label>
+                                                    <label>City<span class="star-red">*</span> </label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg" name="city" id="city" placeholder="City" value="{{old('city')}}" />
                                                     <span class="form-text text-muted">Please enter your City.</span>
                                                 </div>
@@ -332,10 +328,22 @@
                                             <div class="col-xl-6">
                                                 <!--begin::Input-->
                                                 <div class="form-group">
-                                                    <label>State</label>
+                                                    <label>State<span class="star-red">*</span> </label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg" name="state" id="state" placeholder="State" value="{{old('state')}}" />
                                                     
                                                     <span class="form-text text-muted">Please enter your State.</span>
+                                                </div>
+                                                <!--end::Input-->
+                                            </div>
+
+                                            <div class="col-xl-6">
+                                                <!--begin::Input-->
+                                                <div class="form-group">
+                                                    <label>Phone<span class="star-red">*</span></label>
+                                                    <input type="text"
+                                                    class="form-control form-control-solid form-control-lg" name="phone" value="{{ old('phone') }}" placeholder="phone"  id="phone" />
+                                                    <span id="vPhone">Please enter valid phone number</span>
+                                                    <span class="form-text text-muted">Please enter your phone number.</span>
                                                 </div>
                                                 <!--end::Input-->
                                             </div>
@@ -350,7 +358,7 @@
                                         <div class="row">
                                             <div class="col-xl-4">
                                                 <div class="form-group">
-                                                    <label>Legal Business Name</label>
+                                                    <label>Business Name<span class="star-red">*</span> </label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg" name="bname" placeholder="Business Name" value="{{old('bname')}}" />
                                                     <span class="form-text text-muted">Please enter your Business Name.</span>
                                                 </div>
@@ -364,7 +372,7 @@
                                             </div>
                                             <div class="col-xl-4">
                                                 <div class="form-group">
-                                                    <label>Business Contact No*</label>
+                                                    <label>Business Contact No<span class="star-red">*</span> </label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg" name="bNumber" placeholder="Business contact number" value="{{old('bNumber')}}" />
                                                     <span class="form-text text-muted">Please enter your Business Contact Number.</span>
                                                 </div>

@@ -14,16 +14,16 @@ return [
 
         // Custom
         [
-            'section' => 'Custom',
+            'section' => 'Cloud',
         ],
         [
-            'title' => 'Applications',
+            'title' => 'Public Cloud',
             'icon' => 'media/svg/icons/Layout/Layout-4-blocks.svg',
             'bullet' => 'line',
             'root' => true,
             'submenu' => [
                 [
-                    'title' => 'Users',
+                    'title' => 'Compute',
                     'bullet' => 'dot',
                     'submenu' => [
                         [
@@ -53,7 +53,7 @@ return [
                     ]
                 ],
                 [
-                    'title' => 'Profile',
+                    'title' => 'Storage',
                     'bullet' => 'dot',
                     'submenu' => [
                         [
@@ -97,7 +97,7 @@ return [
                     ]
                 ],
                 [
-                    'title' => 'Contacts',
+                    'title' => 'Network',
                     'bullet' => 'dot',
                     'submenu' => [
                         [
@@ -123,7 +123,7 @@ return [
                     ]
                 ],
                 [
-                    'title' => 'Projects',
+                    'title' => 'Containers & Orchestrations',
                     'bullet' => 'dot',
                     'submenu' => [
                         [
@@ -161,7 +161,7 @@ return [
                     ]
                 ],
                 [
-                    'title' => 'Support Center',
+                    'title' => 'Data Analytics',
                     'bullet' => 'dot',
                     'submenu' => [
                         [
@@ -195,7 +195,7 @@ return [
                     ]
                 ],
                 [
-                    'title' => 'Chat',
+                    'title' => 'AI & Machine learning',
                     'bullet' => 'dot',
                     'submenu' => [
                         [
@@ -211,34 +211,8 @@ return [
                             'page' => 'custom/apps/chat/popup'
                         ]
                     ]
-                ],
-                [
-                    'title' => 'Todo',
-                    'bullet' => 'dot',
-                    'submenu' => [
-                        [
-                            'title' => 'Tasks',
-                            'page' => 'custom/apps/todo/tasks'
-                        ],
-                        [
-                            'title' => 'Docs',
-                            'page' => 'custom/apps/todo/docs'
-                        ],
-                        [
-                            'title' => 'Files',
-                            'page' => 'custom/apps/todo/files'
-                        ]
-                    ]
-                ],
-                [
-                    'title' => 'Inbox',
-                    'bullet' => 'dot',
-                    'page' => 'custom/apps/inbox',
-                    'label' => [
-                        'type' => 'label-danger label-inline',
-                        'value' => 'new'
-                    ]
                 ]
+                
             ]
         ],
         [
