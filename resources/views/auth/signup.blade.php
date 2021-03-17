@@ -45,7 +45,7 @@
                 <div class="card-body">
                     <p>Create your account</p>
                     <a href="/register" class="p-5 btn btn-primary d-block m-5"><i class="flaticon-email"></i> Signup with email</a>
-                    <a href="" class="p-5 btn btn-outline-primary d-block m-5"><i class="flaticon-letter-g"></i>Signup with google</a>
+                    <a href="{{ url('auth/google') }}" class="p-5 btn btn-outline-primary d-block m-5"><i class="flaticon-letter-g"></i>Signup with google</a>
                     <a href="" class="p-5 btn btn-transparent-primary font-weight-bold d-block m-5"><i class="
                         socicon-github"></i> Signup with github</a>
                 </div>

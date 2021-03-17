@@ -177,6 +177,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Brian2694\Toastr\ToastrServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
         
     ],
 
@@ -234,6 +235,7 @@ return [
         'Metronic' => App\Classes\Theme\Metronic::class,
         'Menu' => App\Classes\Theme\Menu::class,
         'Toastr'  => Brian2694\Toastr\Facades\Toastr::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 

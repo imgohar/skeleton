@@ -98,6 +98,7 @@
                                     </a>
                                 @endif
                             </div>
+                            <a href="{{ url('auth/google') }}" class="p-2 btn btn-outline-primary d-block m-5"><i class="flaticon-letter-g"></i>Login with google</a>
                         </div>
                     </form>
                 </div>

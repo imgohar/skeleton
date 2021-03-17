@@ -48,3 +48,5 @@ Route::get("/signup",function(){
 })->name('signup');
 
 Route::get("/new",[PagesController::class,'new']);
+Route::get('/auth/google', 'Auth\GoogleController@redirectToGoogle');
+Route::get('/auth/google/callback', 'Auth\GoogleController@handleGoogleCallback');
