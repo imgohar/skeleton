@@ -43,5 +43,8 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get("/signup",function(){
+    return view('auth.signup');
+})->name('signup');
 
 Route::get("/new",[PagesController::class,'new']);
