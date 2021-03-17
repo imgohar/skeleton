@@ -98,8 +98,14 @@
                                     </a>
                                 @endif
                             </div>
-                            <a href="{{ url('auth/google') }}" class="p-2 btn btn-outline-primary d-block m-5"><i class="flaticon-letter-g"></i>Login with google</a>
+                            
                         </div>
+                        <div class="col-lg-6 offset-lg-3 mt-3">
+                            <a href="{{ url('auth/google') }}" class="btn btn-outline-primary d-block m-5"><i class="flaticon-letter-g"></i>Login with google</a>
+                            <a href="{{ url('auth/github') }}" class="btn btn-outline-primary font-weight-bold d-block m-5"><i class="
+                                socicon-github"></i> Login with github</a>
+                        </div>
+                        
                     </form>
                 </div>
             </div>
