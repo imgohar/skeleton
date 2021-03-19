@@ -33,8 +33,12 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->integer("is_tfa_enabled")->default(0);
+            $table->string("pin")->nullable();
+            $table->string("is_verified")->default("false");
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 
