@@ -35,7 +35,11 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer("is_tfa_enabled")->default(0);
             $table->string("pin")->nullable();
-            $table->string("is_verified")->default("false");
+            $table->string('dba')->nullable();
+            $table->string('b_address_1')->nullable();
+            $table->string('b_address_2')->nullable();
+            $table->string('id1')->nullable();
+            $table->string('id2')->nullable();
             $table->rememberToken();
             $table->timestamps();
 

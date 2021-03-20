@@ -169,7 +169,7 @@
                         <!--begin: Wizard Form-->
                         <div class="row">
                             <div class="offset-xxl-2 col-xxl-8">
-                                <form method="POST" action="{{ route('register') }}" class="form" id="kt_form">
+                                <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" class="form" id="kt_form">
                                     @csrf
                                     <!--begin: Wizard Step 1-->
                                     <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
@@ -317,8 +317,11 @@
                                             <div class="col-xl-6">
                                                 <!--begin::Input-->
                                                 <div class="form-group">
-                                                    <label>City<span class="star-red">*</span> </label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="city" id="city" placeholder="City" value="{{old('city')}}" />
+                                                    <label>City<span class="star-red">*</span></label>
+                                                    <select class="form-control form-control-solid form-control-lg"  disabled="disabled" name="city" id="city">
+                                                        
+                                                    </select>
+                                                    
                                                     <span class="form-text text-muted">Please enter your City.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -329,8 +332,9 @@
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>State<span class="star-red">*</span> </label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="state" id="state" placeholder="State" value="{{old('state')}}" />
-                                                    
+                                                    <select class="form-control form-control-solid form-control-lg"  disabled="disabled" name="state" id="state">
+                                                        
+                                                    </select>
                                                     <span class="form-text text-muted">Please enter your State.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -347,13 +351,38 @@
                                                 </div>
                                                 <!--end::Input-->
                                             </div>
+                                            <div class="col-xl-6" id="hide-id-1">
+                                                <div class="form-group">
+                                                    <label>Upload front of ID card</label>
+                                                    <div></div>
+                                                    <div class="custom-file">
+                                                     <input name="id1" type="file" class="custom-file-input" id="id1"/>
+                                                     <label class="custom-file-label" for="id1">Choose image</label>
+                                                    </div>
+                                                   </div>
+                                                   
+
+                                            </div>
+                                            <div class="col-xl-6" id="hide-id-2">
+                                                <div class="form-group">
+                                                    <label>Upload Back of Id card</label>
+                                                    <div></div>
+                                                    <div class="custom-file">
+                                                     <input name="id2" type="file" class="custom-file-input" id="id2"/>
+                                                     <label class="custom-file-label" for="id2">Choose images</label>
+                                                    </div>
+                                                   </div>
+
+                                         
+                                            
+                                              </div>
                                             
                                         </div>
                                     </div>
                                     <!--end: Wizard Step 2-->
                                     <!--begin: Wizard Step 3-->
                                     <div class="pb-5" data-wizard-type="step-content">
-                                        <h4 class="mb-10 font-weight-bold text-dark">Bsuiness Details</h4>
+                                        <h4 class="mb-10 font-weight-bold text-dark">Business Details</h4>
                                         <!--begin::Select-->
                                         <div class="row">
                                             <div class="col-xl-4">
@@ -365,10 +394,35 @@
                                             </div>
                                             <div class="col-xl-4">
                                                 <div class="form-group">
+                                                    <label>DBA (Doing Business As)</label>
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="dba" placeholder="Doing business as" value="{{old('dba')}}" />
+                                                    <span class="form-text text-muted">Please enter your DBA.</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <div class="form-group">
                                                     <label>Tax ID/ EIN</label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg" name="tid" placeholder="Enter Tax ID/ EIN" value="{{old('tid')}}" />
                                                     <span class="form-text text-muted">Please enter your Business Tax id/EIN.</span>
                                                 </div>
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <!--begin::Input-->
+                                                <div class="form-group">
+                                                    <label>Business Address Line 1<span class="star-red">*</span> </label>
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="b_address_1" placeholder="BusinessAddress Line 1" value="{{old('b_address_1')}}" />
+                                                    <span class="form-text text-muted">Please enter your Business Address.</span>
+                                                </div>
+                                                <!--end::Input-->
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <!--begin::Input-->
+                                                <div class="form-group">
+                                                    <label>Business Address Line 2</label>
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="b_address_2" placeholder="Business Address Line 2" value="{{old('b_address_2')}}" />
+                                                    <span class="form-text text-muted">Please enter your Address.</span>
+                                                </div>
+                                                <!--end::Input-->
                                             </div>
                                             <div class="col-xl-4">
                                                 <div class="form-group">
@@ -477,7 +531,6 @@ document.getElementById("submitRegistration").disabled = true;
 
 $('body').on('click', '#iagreeeBox', function () {
     if ($(this).prop('checked') == true) {
-       
         // $('#submitRegistration').removeAttr('disabled');
         document.getElementById("submitRegistration").disabled = false;
     } else {
@@ -535,6 +588,26 @@ $('body').on('click', '#iagreeeBox', function () {
 
 
     <script>
+        document.getElementById("hide-id-1").style.display = "none";
+        document.getElementById("hide-id-2").style.display = "none";
+
+
+        
+document.querySelector('#country').addEventListener('change', function() {
+    var country = document.getElementById("country").value;
+    if(country == 'PK'){
+        document.getElementById("hide-id-1").style.display = "block";
+        document.getElementById("hide-id-2").style.display = "block";
+    }else{
+        document.getElementById("hide-id-1").style.display = "none";
+        document.getElementById("hide-id-2").style.display = "none";
+    }
+	
+});
+
+
+
+
         document.getElementById("vPhone").style.display = "none";
         document.getElementById("pText").style.display = "none";
         document.getElementById("vPhone").style.color = "red";
@@ -586,6 +659,8 @@ $('body').on('click', '#iagreeeBox', function () {
 
             document.getElementById("vPhone").style.display = "block";
         }
+
+      
     }
     if(country == 'AE'){
         $j('#phone').inputmask('+\\971-99-999-9999');
@@ -600,6 +675,7 @@ $('body').on('click', '#iagreeeBox', function () {
             document.getElementById("nextBtn").disabled = true;
 
         }
+       
     }
     if(country == 'US'){
         $j('#phone').inputmask('+1-999-999-9999');
@@ -616,6 +692,7 @@ $('body').on('click', '#iagreeeBox', function () {
 
             document.getElementById("vPhone").style.display = "block";
         }
+       
     }
     });
 
@@ -630,63 +707,116 @@ $('body').on('click', '#iagreeeBox', function () {
         $j('#post_code').inputmask('A9A');
         var pc = document.getElementById("post_code").value;
         if(pc === ""){
-            document.getElementById('state').value = '';
-            document.getElementById('city').value = '';
+            $('#state').html('');
+            $('#city').html('');
         }
-        var client = new XMLHttpRequest();
+        if(pc.length >= 3){
+            var client = new XMLHttpRequest();
             client.open("GET", `http://api.zippopotam.us/CA/${pc}`, true);
             client.onreadystatechange = function() {
                 if(client.readyState == 4) {
                     var data = JSON.parse(client.responseText);
-                    console.log(data['places'][0]['state']);
-                    if(data){
-                        document.getElementById('state').value = data['places'][0]['state'];
-                        document.getElementById('city').value = data['places'][0]['place name'];
-                        document.getElementById("submitRegistration").disabled = false;
-                        document.getElementById("pText").style.display = "none";
+                    console.log(data['places'].length);
+                    if (data['places'].length == 0) {
+                        $('#pText').show().html('Enter valid zipcode');
                     }
-                }else{
-                        document.getElementById("submitRegistration").disabled = true;
-                        document.getElementById("pText").style.display = "block";
+
+                    if (data['places'].length == 1) {
+                        var city_option = '<option value="' +data['places'][0]['place name'] + '">' + data['places'][0]['place name'] + '</option>';
+                        $('#city').html(city_option);
+                        $('#city').attr('disabled', 'disabled');
+
+                        var state_option = '<option value="' +data['places'][0]['state'] + '">' + data['places'][0]['state'] + '</option>';
+                        $('#state').html(state_option);
+                        $('#state').attr('disabled', 'disabled');
+                        
+                    }
+                    else {
+                        var state_option = '<option value="">Select State</option>';
+                        var city_option = '<option value="">Select City</option>';
+                        for (var si = 0; si < data['places'].length; si++) {
+                            state_option += '<option value="' + data['places'][si]['state'] + '">' + data['places'][si]['state'] + '</option>';
+                            city_option += '<option value="' + data['places'][si]['place name'] + '">' + data['places'][si]['place name'] + '</option>';
+                        }
+                        if (data['places'].length > 1) {
+                            $('#state').removeAttr('disabled');
+                            $('#city').removeAttr('disabled');
+                        }
+                        $('#state').html(state_option);
+                        $('#city').html(city_option);
+                        }
                 }
             };
             client.send();
+        }
+
+        
     }
     if(country == 'PK'){
         $j('#post_code').inputmask('99999');
         var pc = document.getElementById("post_code").value;
         if(pc === ""){
-            document.getElementById('state').value = '';
-            document.getElementById('city').value = '';
+            $('#state').html('');
+            $('#city').html('');
         }
-        var client = new XMLHttpRequest();
+        if(pc.length >= 5){
+            var client = new XMLHttpRequest();
             client.open("GET", `http://api.zippopotam.us/PK/${pc}`, true);
             client.onreadystatechange = function() {
                 if(client.readyState == 4) {
                     var data = JSON.parse(client.responseText);
-                    console.log(data['places'][0]['state']);
-                    if(data){
-                        document.getElementById('state').value = data['places'][0]['state'];
-                        document.getElementById('city').value = '';
-                        document.getElementById("submitRegistration").disabled = false;
-                        document.getElementById("pText").style.display = "none";
+                    console.log(data['places'].length);
+                    if (data['places'].length == 0) {
+                        $('#pText').show().html('Enter valid zipcode');
                     }
-                }else{
-                        document.getElementById("submitRegistration").disabled = true;
-                        document.getElementById("pText").style.display = "block";
+
+                    if (data['places'].length == 1) {
+                        var city_option = '<option value="' +data['places'][0]['place name'] + '">' + data['places'][0]['place name'] + '</option>';
+                        $('#city').html(city_option);
+                        $('#city').attr('disabled', 'disabled');
+
+                        var state_option = '<option value="' +data['places'][0]['state'] + '">' + data['places'][0]['state'] + '</option>';
+                        $('#state').html(state_option);
+                        $('#state').attr('disabled', 'disabled');
+                        
+                    }
+                    else {
+                        var state_option = '<option value="">Select State</option>';
+                        var city_option = '<option value="">Select City</option>';
+                        for (var si = 0; si < data['places'].length; si++) {
+                            state_option += '<option value="' + data['places'][si]['state'] + '">' + data['places'][si]['state'] + '</option>';
+                            city_option += '<option value="' + data['places'][si]['place name'] + '">' + data['places'][si]['place name'] + '</option>';
+                        }
+                        if (data['places'].length > 1) {
+                            $('#state').removeAttr('disabled');
+                            $('#city').removeAttr('disabled');
+                        }
+                        $('#state').html(state_option);
+                        $('#city').html(city_option);
+                        }
+
+                    
                 }
             };
             client.send();
-       
+        } 
     }
     if(country == 'AE'){
         // $j('#post_code').inputmask('NO-POST\\AL-CODE');
-        // $('#post_code').value('No postal code');
+        $('#post_code').value('No postal code');
         var pc = document.getElementById("post_code").value;
         if(pc == ""){
-            document.getElementById('state').value = '';
-            document.getElementById('city').value = '';
+            $('#state').html('');
+            $('#city').html('');
         }
+            $('#state').removeAttr('disabled');
+            $('#city').removeAttr('disabled');
+            $('#state').html('<option value="AK"></option><option value="HI">Hawaii</option><option value="CA">California</option><option value="NV">Nevada</option><option value="OR">Oregon</option><option value="WV">West Virginia</option>');
+            $('#city').html('<option value="AK"></option><option value="HI">Hawaii</option><option value="CA">California</option><option value="NV">Nevada</option><option value="OR">Oregon</option><option value="WV">West Virginia</option>');
+        
+        // document.getElementById('city').type = 'input';
+
+        
 
         
     }
@@ -694,27 +824,50 @@ $('body').on('click', '#iagreeeBox', function () {
         $j('#post_code').inputmask('99999');
         var pc = document.getElementById("post_code").value;
         if(pc === ""){
-            document.getElementById('state').value = '';
-            document.getElementById('city').value = '';
+            $('#state').html('');
+            $('#city').html('');
         }
-        var client = new XMLHttpRequest();
+        if(pc.length >= 5){
+            var client = new XMLHttpRequest();
             client.open("GET", `http://api.zippopotam.us/US/${pc}`, true);
             client.onreadystatechange = function() {
                 if(client.readyState == 4) {
                     var data = JSON.parse(client.responseText);
-                    console.log(data['places'][0]['state']);
-                    if(data){
-                        document.getElementById('state').value = data['places'][0]['state'];
-                        document.getElementById('city').value = data['places'][0]['place name'];
-                        document.getElementById("submitRegistration").disabled = false;
-                        document.getElementById("pText").style.display = "none";
+                    console.log(data['places'].length);
+                    if (data['places'].length == 0) {
+                        $('#pText').show().html('Enter valid zipcode');
                     }
-                }else{
-                        document.getElementById("submitRegistration").disabled = true;
-                        document.getElementById("pText").style.display = "block";
+
+                    if (data['places'].length == 1) {
+                        var city_option = '<option value="' +data['places'][0]['place name'] + '">' + data['places'][0]['place name'] + '</option>';
+                        $('#city').html(city_option);
+                        $('#city').attr('disabled', 'disabled');
+
+                        var state_option = '<option value="' +data['places'][0]['state'] + '">' + data['places'][0]['state'] + '</option>';
+                        $('#state').html(state_option);
+                        $('#state').attr('disabled', 'disabled');
+                        
+                    }
+                    else {
+                        var state_option = '<option value="">Select State</option>';
+                        var city_option = '<option value="">Select City</option>';
+                        for (var si = 0; si < data['places'].length; si++) {
+                            state_option += '<option value="' + data['places'][si]['state'] + '">' + data['places'][si]['state'] + '</option>';
+                            city_option += '<option value="' + data['places'][si]['place name'] + '">' + data['places'][si]['place name'] + '</option>';
+                        }
+                        if (data['places'].length > 1) {
+                            $('#state').removeAttr('disabled');
+                            $('#city').removeAttr('disabled');
+                        }
+                        $('#state').html(state_option);
+                        $('#city').html(city_option);
+                        }
+
+                    
                 }
             };
             client.send();
+        } 
     }
     });
 

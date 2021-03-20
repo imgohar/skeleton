@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -53,6 +54,8 @@ class RegisterController extends Controller
             'fname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
+            'id1' => ['mimes:jpeg,png,jpg','max:1999'],
+            'id2' => ['mimes:jpeg,png,jpg','max:1999']
         ]);
     }
 
@@ -64,6 +67,29 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+         /********************************** 
+        // ALSO RUN PHP ARTISAN STORAGE:LINK
+        **********************************/
+        $request = request();
+        // GET FILE NAME WITH EXTENSION
+        $fileNameWithExtension1 = $request->file('id1')->getClientOriginalName();
+        $fileNameWithExtension2 = $request->file('id2')->getClientOriginalName();
+
+        // GET JUST THE FILE NAME
+        $fileName1 = pathinfo($fileNameWithExtension1,PATHINFO_FILENAME);
+        $fileName2 = pathinfo($fileNameWithExtension2,PATHINFO_FILENAME);
+
+        // GRT JUST THE EXTENSION WITHOUT DOT
+        $extension1 = $request->file("id1")->getClientOriginalExtension();
+        $extension2 = $request->file("id2")->getClientOriginalExtension();
+        
+        // CREATE NEW FILE NAME
+        $fileNameToStore1 = $fileName1 . '_front' . time(). '.' . $extension1;
+        $fileNameToStore2 = $fileName2 . '_back' . time(). '.' . $extension2;
+        
+        // UPLOAD IMAGE
+        $path1 = $request->file('id1')->storeAs('public/id-cards/',$fileNameToStore1);
+        $path2 = $request->file('id2')->storeAs('public/id-cards/',$fileNameToStore2);
 
 
         return User::create([
@@ -82,6 +108,11 @@ class RegisterController extends Controller
             'business_tax_id' => $data['tid'],
             'business_contact_number' => $data['bNumber'],
             'nic' => $data['nic'],
+            'b_address_1' => $data['b_address_1'],
+            'b_address_2' => $data['b_address_2'],
+            'dba' => $data['dba'],
+            'id1' => $fileNameToStore1,
+            'id2' => $fileNameToStore2,
             'password' => Hash::make($data['password']),
         ]);
     }
