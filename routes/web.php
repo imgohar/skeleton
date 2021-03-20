@@ -33,6 +33,10 @@ Route::middleware(['phone_verify'])->group(function(){
     
     Route::get("/password-reset",[PagesController::class,'passwordRreset']);
     Route::post("/password-reset",[PagesController::class,'passwordRresetSubmit']);
+
+
+    Route::get('/enable-2fa',[PagesController::class,'enable2Fa']);
+    Route::post('/enable-2fa',[PagesController::class,'enable2FaSubmit']);
     
     
     

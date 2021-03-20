@@ -51,17 +51,17 @@
     </a>
 
     {{-- Item --}}
-    <a href="#"  class="navi-item px-8">
+    <a href="/enable-2fa"  class="navi-item px-8">
         <div class="navi-link">
             <div class="navi-icon mr-2">
                 <i class="flaticon2-mail text-warning"></i>
             </div>
             <div class="navi-text">
                 <div class="font-weight-bold">
-                    My Messages
+                    Enable 2 Factor Authentication
                 </div>
                 <div class="text-muted">
-                    Inbox and tasks
+                    2 Factor Authentiaction
                 </div>
             </div>
         </div>
