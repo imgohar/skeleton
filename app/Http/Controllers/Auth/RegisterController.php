@@ -50,13 +50,27 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'fname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8'],
-            'id1' => ['mimes:jpeg,png,jpg','max:1999'],
-            'id2' => ['mimes:jpeg,png,jpg','max:1999']
-        ]);
+        if($data['country'] == "PK"){
+            return Validator::make($data, [
+                'fname' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'string', 'min:8'],
+                'id1' => ['required','mimes:jpeg,png,jpg','max:1999'],
+                'id2' => ['required','mimes:jpeg,png,jpg','max:1999'],
+                'nic' => ['required']
+
+            ]);
+        }
+        else{
+            return Validator::make($data, [
+                'fname' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'string', 'min:8'],
+                'id1' => ['mimes:jpeg,png,jpg','max:1999'],
+                'id2' => ['mimes:jpeg,png,jpg','max:1999']
+            ]);
+        }
+        
     }
 
     /**

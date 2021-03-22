@@ -61,6 +61,7 @@
 <link rel="stylesheet" href="{{URL::asset('assets/wizard-2.css')}}">
 <div class="d-flex flex-column-fluid">
     <!--begin::Container-->
+    @include('includes.alerts')
     <div class="container">
         <div class="card card-custom">
             <div class="card-body p-0">

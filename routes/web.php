@@ -21,6 +21,10 @@ Route::post('/pin',[PagesController::class,'index2'])->name('pin');
 // Demo routes
 Route::middleware(['phone_verify'])->group(function(){
 
+    Route::get("/change-profile-data",[PagesController::class,'chnageProfile']);
+    Route::post("/change-profile-data",[PagesController::class,'chnageProfileSubmit']);
+
+
     Route::get('/datatables', 'PagesController@datatables');
     Route::get('/ktdatatables', 'PagesController@ktDatatables');
     Route::get('/select2', 'PagesController@select2');
@@ -43,6 +47,14 @@ Route::middleware(['phone_verify'])->group(function(){
     
     // Quick search dummy route to display html elements in search dropdown (header search)
     Route::get('/quick-search', 'PagesController@quickSearch')->name('quick-search');
+
+
+
+
+    Route::get('/admin', [AdminController::class,'index'])->name('admin');
+
+
+
     
 });
 
@@ -52,13 +64,13 @@ Auth::routes(['verify' => true]);
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 Route::get("/signup",function(){
     return view('auth.signup');
 })->name('signup');
 
-Route::get("/new",[PagesController::class,'new']);
+
 
 
 
@@ -75,5 +87,4 @@ Route::get('/auth/github/callback', 'Auth\GithubController@handleGoogleCallback'
 
 
 // Route::get('/', 'PlayerController@index')->name('customer')->middleware('customer');
-Route::get('/admin', [AdminController::class,'index'])->name('admin');
 // Route::get('/seller', 'ScoutController@index')->name('seller')->middleware('seller');
