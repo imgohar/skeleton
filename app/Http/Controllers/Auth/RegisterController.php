@@ -71,6 +71,7 @@ class RegisterController extends Controller
         // ALSO RUN PHP ARTISAN STORAGE:LINK
         **********************************/
         $request = request();
+        if ($request->file('id1') || $request->file('id2')) {
         // GET FILE NAME WITH EXTENSION
         $fileNameWithExtension1 = $request->file('id1')->getClientOriginalName();
         $fileNameWithExtension2 = $request->file('id2')->getClientOriginalName();
@@ -90,9 +91,16 @@ class RegisterController extends Controller
         // UPLOAD IMAGE
         $path1 = $request->file('id1')->storeAs('public/id-cards/',$fileNameToStore1);
         $path2 = $request->file('id2')->storeAs('public/id-cards/',$fileNameToStore2);
+        
+        }else{
+            $fileNameToStore1 = '';
+            $fileNameToStore2 = '';
+        }
 
-
+        
+        
         return User::create([
+            
             'fname' => $data['fname'],
             'mname' => $data['mname'],
             'lname' => $data['lname'],

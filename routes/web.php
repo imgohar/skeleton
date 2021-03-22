@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PagesController;
 
 /*
@@ -14,7 +15,7 @@ use App\Http\Controllers\PagesController;
 |
 */
 
-Route::get('/', 'PagesController@index');
+Route::get('/', 'PagesController@index')->middleware('customer');
 Route::post('/pin',[PagesController::class,'index2'])->name('pin');
 
 // Demo routes
@@ -68,3 +69,11 @@ Route::get('/auth/google/callback', 'Auth\GoogleController@handleGoogleCallback'
 
 Route::get('/auth/github', 'Auth\GithubController@redirectToGoogle');
 Route::get('/auth/github/callback', 'Auth\GithubController@handleGoogleCallback');
+
+
+
+
+
+// Route::get('/', 'PlayerController@index')->name('customer')->middleware('customer');
+Route::get('/admin', [AdminController::class,'index'])->name('admin');
+// Route::get('/seller', 'ScoutController@index')->name('seller')->middleware('seller');

@@ -50,4 +50,28 @@ class LoginController extends Controller
         
         return redirect('/login');
       }
+
+    public function redirectTo()
+    {
+        switch(Auth::user()->role){
+            case 'admin':
+            $this->redirectTo = '/admin';
+            return $this->redirectTo;
+                break;
+            // case 'seller':
+            //     $this->redirectTo = '/seller';
+            //     return $this->redirectTo;
+            //     break;
+            case 'customer':
+                $this->redirectTo = '/';
+                return $this->redirectTo;
+                break;
+            default:
+                $this->redirectTo = '/login';
+                return $this->redirectTo;
+        }
+         
+        // return $next($request);
+    } 
 }
+

@@ -354,12 +354,12 @@
                                             <div class="col-xl-6" id="hide-id-1">
                                                 <div class="form-group">
                                                     <label>Upload front of ID card</label>
-                                                    <div></div>
+                                                    {{-- <div></div> --}}
                                                     <div class="custom-file">
                                                      <input name="id1" type="file" class="custom-file-input" id="id1"/>
-                                                     <label class="custom-file-label" for="id1">Choose image</label>
+                                                     <label class="custom-file-label" for="id1" id="ids1">Choose image</label>
                                                     </div>
-                                                   </div>
+                                                </div>
                                                    
 
                                             </div>
@@ -369,7 +369,7 @@
                                                     <div></div>
                                                     <div class="custom-file">
                                                      <input name="id2" type="file" class="custom-file-input" id="id2"/>
-                                                     <label class="custom-file-label" for="id2">Choose images</label>
+                                                     <label class="custom-file-label" for="id2" id="ids2">Choose images</label>
                                                     </div>
                                                    </div>
 
@@ -510,6 +510,19 @@
 
     <script>
 
+$(document).ready(function(){
+        $('#id1').change(function(e){
+            var fileName = e.target.files[0].name;
+            // alert('The file "' + fileName +  '" has been selected.');
+            document.getElementById("ids1").innerHTML = fileName;
+        });
+        $('#id2').change(function(e){
+            var fileName = e.target.files[0].name;
+            // alert('The file "' + fileName +  '" has been selected.');
+            document.getElementById("ids2").innerHTML = fileName;
+        });
+    });
+
 if(document.getElementById('country').value == "PK"){
     document.getElementById("nIDCard").style.display = "block";
 }else{
@@ -601,6 +614,42 @@ document.querySelector('#country').addEventListener('change', function() {
     }else{
         document.getElementById("hide-id-1").style.display = "none";
         document.getElementById("hide-id-2").style.display = "none";
+    }
+    if(country == 'PK'){
+        var pc = document.getElementById("post_code").value = "";
+        var pc = document.getElementById("phone").value = "";
+
+    }
+    if(country == 'CA'){
+        var pc = document.getElementById("post_code").value = "";
+        var pc = document.getElementById("phone").value = "";
+
+    }
+    if(country == 'US'){
+        var pc = document.getElementById("post_code").value = "";
+        var pc = document.getElementById("phone").value = "";
+
+    }
+
+
+    if(country == 'AE'){
+        // $j('#post_code').inputmask('NO-POST\\AL-CODE');
+        // $('#post_code').value('No postal code');
+        var pc = document.getElementById("post_code").value = "No Postal Code required";
+        if(pc == ""){
+            $('#state').html('');
+            $('#city').html('');
+        }
+            $('#state').removeAttr('disabled');
+            $('#city').removeAttr('disabled');
+            $('#state').html('<option value="" selected>Select a state</option><option value="AK"></option><option value="HI">Hawaii</option><option value="CA">California</option><option value="NV">Nevada</option><option value="OR">Oregon</option><option value="WV">West Virginia</option>');
+            $('#city').html('<option value="" selected>Select a city</option><option value="AK"></option><option value="HI">Hawaii</option><option value="CA">California</option><option value="NV">Nevada</option><option value="OR">Oregon</option><option value="WV">West Virginia</option>');
+        
+        // document.getElementById('city').type = 'input';
+
+        
+
+        
     }
 	
 });
@@ -721,24 +770,27 @@ document.querySelector('#country').addEventListener('change', function() {
                         $('#pText').show().html('Enter valid zipcode');
                     }
 
-                    if (data['places'].length == 1) {
-                        var city_option = '<option value="' +data['places'][0]['place name'] + '">' + data['places'][0]['place name'] + '</option>';
-                        $('#city').html(city_option);
-                        $('#city').attr('disabled', 'disabled');
-
-                        var state_option = '<option value="' +data['places'][0]['state'] + '">' + data['places'][0]['state'] + '</option>';
-                        $('#state').html(state_option);
-                        $('#state').attr('disabled', 'disabled');
+                    // else if (data['places'].length == 1) {
+                    //     // console.log(data['places'][0]['place name'])
+                    //     // console.log(data['places'][0]['state'])
+                    //     var city_option = '<option value="' +data['places'][0]['place name'] + '" selected>' + data['places'][0]['place name'] + '</option>';
+                    //     $('#city').html(city_option);
+                    //     $('#city').attr('disabled', 'disabled');
+                    //     var state_option = '<option value="' +data['places'][0]['state'] + '" selected>' + data['places'][0]['state'] + '</option>';
+                    //     $('#state').html(state_option);
+                    //     $('#state').attr('disabled', 'disabled');
+                    //     // console.log($("#city").value);
+                    //     // console.log($("#state").value);
                         
-                    }
-                    else {
+                    // }
+                    else if((data['places'].length >= 1)){
                         var state_option = '<option value="">Select State</option>';
                         var city_option = '<option value="">Select City</option>';
                         for (var si = 0; si < data['places'].length; si++) {
                             state_option += '<option value="' + data['places'][si]['state'] + '">' + data['places'][si]['state'] + '</option>';
                             city_option += '<option value="' + data['places'][si]['place name'] + '">' + data['places'][si]['place name'] + '</option>';
                         }
-                        if (data['places'].length > 1) {
+                        if (data['places'].length >= 1) {
                             $('#state').removeAttr('disabled');
                             $('#city').removeAttr('disabled');
                         }
@@ -770,24 +822,24 @@ document.querySelector('#country').addEventListener('change', function() {
                         $('#pText').show().html('Enter valid zipcode');
                     }
 
-                    if (data['places'].length == 1) {
-                        var city_option = '<option value="' +data['places'][0]['place name'] + '">' + data['places'][0]['place name'] + '</option>';
-                        $('#city').html(city_option);
-                        $('#city').attr('disabled', 'disabled');
+                    // if (data['places'].length == 1) {
+                    //     var city_option = '<option value="' +data['places'][0]['place name'] + '" selected>' + data['places'][0]['place name'] + '</option>';
+                    //     $('#city').html(city_option);
+                    //     $('#city').attr('disabled', 'disabled');
 
-                        var state_option = '<option value="' +data['places'][0]['state'] + '">' + data['places'][0]['state'] + '</option>';
-                        $('#state').html(state_option);
-                        $('#state').attr('disabled', 'disabled');
+                    //     var state_option = '<option value="' +data['places'][0]['state'] + '" selected>' + data['places'][0]['state'] + '</option>';
+                    //     $('#state').html(state_option);
+                    //     $('#state').attr('disabled', 'disabled');
                         
-                    }
-                    else {
+                    // }
+                    else if((data['places'].length >= 1)){
                         var state_option = '<option value="">Select State</option>';
                         var city_option = '<option value="">Select City</option>';
                         for (var si = 0; si < data['places'].length; si++) {
                             state_option += '<option value="' + data['places'][si]['state'] + '">' + data['places'][si]['state'] + '</option>';
                             city_option += '<option value="' + data['places'][si]['place name'] + '">' + data['places'][si]['place name'] + '</option>';
                         }
-                        if (data['places'].length > 1) {
+                        if (data['places'].length >= 1) {
                             $('#state').removeAttr('disabled');
                             $('#city').removeAttr('disabled');
                         }
@@ -801,25 +853,7 @@ document.querySelector('#country').addEventListener('change', function() {
             client.send();
         } 
     }
-    if(country == 'AE'){
-        // $j('#post_code').inputmask('NO-POST\\AL-CODE');
-        $('#post_code').value('No postal code');
-        var pc = document.getElementById("post_code").value;
-        if(pc == ""){
-            $('#state').html('');
-            $('#city').html('');
-        }
-            $('#state').removeAttr('disabled');
-            $('#city').removeAttr('disabled');
-            $('#state').html('<option value="AK"></option><option value="HI">Hawaii</option><option value="CA">California</option><option value="NV">Nevada</option><option value="OR">Oregon</option><option value="WV">West Virginia</option>');
-            $('#city').html('<option value="AK"></option><option value="HI">Hawaii</option><option value="CA">California</option><option value="NV">Nevada</option><option value="OR">Oregon</option><option value="WV">West Virginia</option>');
-        
-        // document.getElementById('city').type = 'input';
-
-        
-
-        
-    }
+    
     if(country == 'US'){
         $j('#post_code').inputmask('99999');
         var pc = document.getElementById("post_code").value;
@@ -838,24 +872,24 @@ document.querySelector('#country').addEventListener('change', function() {
                         $('#pText').show().html('Enter valid zipcode');
                     }
 
-                    if (data['places'].length == 1) {
-                        var city_option = '<option value="' +data['places'][0]['place name'] + '">' + data['places'][0]['place name'] + '</option>';
-                        $('#city').html(city_option);
-                        $('#city').attr('disabled', 'disabled');
+                    // if (data['places'].length == 1) {
+                    //     var city_option = '<option value="' +data['places'][0]['place name'] + '">' + data['places'][0]['place name'] + '</option>';
+                    //     $('#city').html(city_option);
+                    //     $('#city').attr('disabled', 'disabled');
 
-                        var state_option = '<option value="' +data['places'][0]['state'] + '">' + data['places'][0]['state'] + '</option>';
-                        $('#state').html(state_option);
-                        $('#state').attr('disabled', 'disabled');
+                    //     var state_option = '<option value="' +data['places'][0]['state'] + '">' + data['places'][0]['state'] + '</option>';
+                    //     $('#state').html(state_option);
+                    //     $('#state').attr('disabled', 'disabled');
                         
-                    }
-                    else {
+                    // }
+                    else if((data['places'].length >= 1)) {
                         var state_option = '<option value="">Select State</option>';
                         var city_option = '<option value="">Select City</option>';
                         for (var si = 0; si < data['places'].length; si++) {
                             state_option += '<option value="' + data['places'][si]['state'] + '">' + data['places'][si]['state'] + '</option>';
                             city_option += '<option value="' + data['places'][si]['place name'] + '">' + data['places'][si]['place name'] + '</option>';
                         }
-                        if (data['places'].length > 1) {
+                        if (data['places'].length >= 1) {
                             $('#state').removeAttr('disabled');
                             $('#city').removeAttr('disabled');
                         }
