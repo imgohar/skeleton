@@ -17,6 +17,7 @@ use App\Http\Controllers\PagesController;
 
 Route::get('/', 'PagesController@index')->middleware('customer');
 Route::post('/pin',[PagesController::class,'index2'])->name('pin');
+Route::post('/pin2',[AdminController::class,'index2'])->name('pin2');
 
 // Demo routes
 Route::middleware(['phone_verify'])->group(function(){
@@ -24,6 +25,7 @@ Route::middleware(['phone_verify'])->group(function(){
     Route::get("/change-profile-data",[PagesController::class,'chnageProfile']);
     Route::post("/change-profile-data",[PagesController::class,'chnageProfileSubmit']);
 
+    Route::get("/delete-account",[PagesController::class,'deleteAccount']);
 
     Route::get('/datatables', 'PagesController@datatables');
     Route::get('/ktdatatables', 'PagesController@ktDatatables');
@@ -51,7 +53,7 @@ Route::middleware(['phone_verify'])->group(function(){
     Route::get("/change-profile",[PagesController::class,'changeProfile']);
     Route::post("/change-profile",[PagesController::class,'changeProfileSubmit']);
 
-// ADMIN ROUTES
+    // ADMIN ROUTES
 
     Route::get('/admin', [AdminController::class,'index'])->name('admin');
     
@@ -63,34 +65,18 @@ Route::middleware(['phone_verify'])->group(function(){
 
     Route::get("/admin/password-reset",[AdminController::class,'passwordRreset']);
     Route::post("/admin/password-reset",[AdminController::class,'passwordRresetSubmit']);
-
-
-    
-
-
     
 });
 
-
 Auth::routes(['verify' => true]);
-
-
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
-
 
 Route::get("/signup",function(){
     return view('auth.signup');
 })->name('signup');
 
-
-
-
-
-
 Route::get('/auth/google', 'Auth\GoogleController@redirectToGoogle');
 Route::get('/auth/google/callback', 'Auth\GoogleController@handleGoogleCallback');
-
 
 Route::get('/auth/github', 'Auth\GithubController@redirectToGoogle');
 Route::get('/auth/github/callback', 'Auth\GithubController@handleGoogleCallback');

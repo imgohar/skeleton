@@ -42,7 +42,6 @@ class AdminController extends Controller
                     'from' => env('TWILIO_NUMBER'),
                     'body' => 'The code is '.$pin
                 ]);
-    
             }
             return view('auth.pin');
         }
@@ -53,6 +52,24 @@ class AdminController extends Controller
     
             return view('admin.pages.dashboard', compact('page_title', 'page_description'));
         }
+    }
+
+    public function index2(Request $request){
+        $request->validate([
+            'pin'=> 'required|min:2|numeric'
+        ]);
+        $user_id = Auth::user()->id;
+        $user = User::find($user_id);
+        $pin = $request->pin;
+        if($pin == $user->pin){
+            $user->pin = '';
+            $user->save();
+            Session::put('is_verified',true);
+            return redirect('/admin');
+        }else{
+            return back()->with('error',"Wrong Pin");
+        }
+
     }
 
     public function changeProfile(){
@@ -66,10 +83,8 @@ class AdminController extends Controller
     public function changeProfileSubmit(Request $request){
         $request->validate([
             'fname' => 'required',
-            'mname' => 'required',
-            'lname' => 'required',
             'phone' => 'required',
-            'email' => 'email'
+            'email' => 'required'
         ]);
         $user = User::find(Auth::user()->id);
         $user->fname = $request->fname;

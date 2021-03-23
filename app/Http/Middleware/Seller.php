@@ -19,20 +19,14 @@ class Seller
         if (!Auth::check()) {
             return redirect()->route('login');
         }
-
         if (Auth::user()->role == 'customer') {
-            return redirect()->route('customer');
-            
-            
+            return redirect()->route('customer');  
         }
-
-        if (Auth::user()->role == 'seller') {
-            return $next($request);
-        }
-
         if (Auth::user()->role == 'admin') {
             return redirect()->route('admin');
         }
-        return $next($request);
+        if (Auth::user()->role == 'seller') {
+            return $next($request);
+        }
     }
 }

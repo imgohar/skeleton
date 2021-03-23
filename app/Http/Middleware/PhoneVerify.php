@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class PhoneVerify
@@ -20,9 +21,6 @@ class PhoneVerify
         if(Session::has('is_verified')){
             $v = Session::get("is_verified");
             if($v == false){
-                if(Auth::user()->role == 'admin'){
-                    return redirect('/admin');
-                }
                 return redirect('/');
             }
         }

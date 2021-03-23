@@ -13,7 +13,7 @@ class PagesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','verified']);
+        $this->middleware(['auth','verified','customer']);
     }
   
 
@@ -72,7 +72,7 @@ class PagesController extends Controller
         if($pin == $user->pin){
             $user->pin = '';
             $user->save();
-            Session::put('is_verified','true');
+            Session::put('is_verified',true);
             return redirect('/');
         }else{
             return back()->with('error',"Wrong Pin");
@@ -116,6 +116,12 @@ class PagesController extends Controller
             $user->save();
             return redirect('/enable-2fa')->with('success',"2 factor authentiaction disabled successfully");
         }
+    }
+
+
+    public function deleteAccount(){
+        // $user = User::find(Auth::user()->id)->delete;
+        return "DELETE ACCOUNT";
     }
 
 

@@ -51,7 +51,7 @@
         </div>
     </div>
 </a>
-<a href="/admin/reset-password" class="navi-item px-8">
+<a href="/admin/password-reset" class="navi-item px-8">
     <div class="navi-link">
         <div class="navi-icon mr-2">
             <i class="flaticon-security text-info"></i>
