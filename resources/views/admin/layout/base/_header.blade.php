@@ -36,6 +36,6 @@
             <div></div>
         @endif
 
-        @include('layout.partials.extras._topbar')
+        @include('admin.layout.partials.extras._topbar')
     </div>
 </div>

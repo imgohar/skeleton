@@ -206,6 +206,41 @@ class PagesController extends Controller
         return view('layout.partials.extras._quick_search_result');
     }
 
+    public function changeProfile(){
+        $page_title = 'Change Profile';
+        $page_description = 'Update Your Profile';
+        $userId = Auth::user()->id;
+        $user = User::find($userId);
+        return view('pages.change-profile', compact('page_title', 'page_description','user'));
+
+    }
+    public function changeProfileSubmit(Request $request){
+        $request->validate([
+            'fname' => 'required',
+            'mname' => 'required',
+            'lname' => 'required',
+            'phone' => 'required',
+            'business_name' => 'required',
+            'business_contact_number' => 'required'
+        ]);
+        $user = User::find(Auth::user()->id);
+        $user->fname = $request->fname;
+        $user->mname = $request->mname;
+        $user->lname = $request->lname;
+        $user->phone = $request->phone;
+        $user->business_name = $request->business_name;
+        $user->dba = $request->dba;
+        $user->business_tax_id = $request->business_tax_id;
+        $user->business_contact_number = $request->business_contact_number;
+        if($request->two_fa){
+            $user->is_tfa_enabled = 1;
+        }else{
+            $user->is_tfa_enabled = 0;
+        }
+        $user->save();
+        return redirect('/')->with('success',"Account Information changed successfully");
+    }
+
 
     public function passwordRreset(){
         $page_title = 'Password Reset';

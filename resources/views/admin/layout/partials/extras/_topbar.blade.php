@@ -20,7 +20,7 @@
 
                 {{-- Dropdown --}}
                 <div class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-anim-up dropdown-menu-lg">
-                    @include('layout.partials.extras.dropdown._search-dropdown')
+                    @include('admin.layout.partials.extras.dropdown._search-dropdown')
                 </div>
             </div>
         @endif
@@ -48,7 +48,7 @@
                 {{-- Dropdown --}}
                 <div class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-anim-up dropdown-menu-lg">
                     <form>
-                        @include('layout.partials.extras.dropdown._notifications')
+                        @include('admin.layout.partials.extras.dropdown._notifications')
                     </form>
                 </div>
             </div>
@@ -74,7 +74,7 @@
 
                 {{-- Dropdown --}}
                 <div class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-anim-up dropdown-menu-lg">
-                    @include('layout.partials.extras.dropdown._quick-actions')
+                    @include('admin.layout.partials.extras.dropdown._quick-actions')
                 </div>
             </div>
         @endif
@@ -93,7 +93,7 @@
             {{-- Dropdown --}}
             <div class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-xl dropdown-menu-anim-up">
                 <form>
-                    @include('layout.partials.extras.dropdown._cart')
+                    @include('admin.layout.partials.extras.dropdown._cart')
                 </form>
             </div>
         </div>
@@ -118,7 +118,7 @@
             </div>
 
             <div class="dropdown-menu p-0 m-0 dropdown-menu-anim-up dropdown-menu-sm dropdown-menu-right">
-                @include('layout.partials.extras.dropdown._languages')
+                @include('admin.layout.partials.extras.dropdown._languages')
             </div>
         </div>
     @endif
@@ -162,7 +162,7 @@
 
                 {{-- Dropdown --}}
                 <div class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-anim-up dropdown-menu-lg p-0">
-                    @include('layout.partials.extras.dropdown._user')
+                    @include('admin.layout.partials.extras.dropdown._user')
                 </div>
             </div>
         @endif

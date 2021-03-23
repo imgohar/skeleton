@@ -48,11 +48,24 @@ Route::middleware(['phone_verify'])->group(function(){
     // Quick search dummy route to display html elements in search dropdown (header search)
     Route::get('/quick-search', 'PagesController@quickSearch')->name('quick-search');
 
+    Route::get("/change-profile",[PagesController::class,'changeProfile']);
+    Route::post("/change-profile",[PagesController::class,'changeProfileSubmit']);
 
-
+// ADMIN ROUTES
 
     Route::get('/admin', [AdminController::class,'index'])->name('admin');
+    
+    Route::get("/admin/change-profile",[AdminController::class,'changeProfile']);
+    Route::post("/admin/change-profile",[AdminController::class,'changeProfileSubmit']);
 
+    Route::get('/admin/enable-2fa',[AdminController::class,'enable2Fa']);
+    Route::post('/admin/enable-2fa',[AdminController::class,'enable2FaSubmit']);
+
+    Route::get("/admin/password-reset",[AdminController::class,'passwordRreset']);
+    Route::post("/admin/password-reset",[AdminController::class,'passwordRresetSubmit']);
+
+
+    
 
 
     

@@ -19,10 +19,10 @@ class AdminController extends Controller
         if(Session::has('is_verified')){
             $key = Session::get('is_verified');
             if($key == true){
-                $page_title = 'Dashboard';
-                $page_description = 'Some description for the page';
+                $page_title = 'Admin Dashboard';
+                $page_description = 'Admin Dashboard';
         
-                return view('pages.dashboard', compact('page_title', 'page_description'));
+                return view('admin.pages.dashboard', compact('page_title', 'page_description'));
             }
         }
         $id = Auth::user()->id;
@@ -48,10 +48,89 @@ class AdminController extends Controller
         }
         else{
             Session::put('is_verified', true);
-            $page_title = 'Dashboard';
-            $page_description = 'Some description for the page';
+            $page_title = 'Admin Dashboard';
+            $page_description = 'Admin Dashboard';
     
             return view('admin.pages.dashboard', compact('page_title', 'page_description'));
         }
     }
+
+    public function changeProfile(){
+        $page_title = 'Change Profile';
+        $page_description = 'Update Your Profile';
+        $userId = Auth::user()->id;
+        $user = User::find($userId);
+        return view('admin.pages.change-profile', compact('page_title', 'page_description','user'));
+
+    }
+    public function changeProfileSubmit(Request $request){
+        $request->validate([
+            'fname' => 'required',
+            'mname' => 'required',
+            'lname' => 'required',
+            'phone' => 'required',
+            'email' => 'email'
+        ]);
+        $user = User::find(Auth::user()->id);
+        $user->fname = $request->fname;
+        $user->mname = $request->mname;
+        $user->lname = $request->lname;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        if($request->two_fa){
+            $user->is_tfa_enabled = 1;
+        }else{
+            $user->is_tfa_enabled = 0;
+        }
+        $user->save();
+        return redirect('/admin')->with('success',"Account Information changed successfully");
+    }
+
+
+    public function passwordRreset(){
+        $page_title = 'Password Reset';
+        $page_description = 'Reset Your Password';
+
+        return view('admin.pages.password-reset', compact('page_title', 'page_description'));
+    }
+
+    public function passwordRresetSubmit(Request $request){
+        $request->validate([
+            'newPassword' => 'required|min:8'
+        ]);
+
+        $user = User::find(Auth::user()->id);
+        $new = $request->newPassword;
+        $user->password = Hash::make($new);
+        $user->save();
+        return redirect("/admin")->with('success','Password have been updated');
+
+    }
+
+    public function enable2Fa(){
+        $page_title = 'Enable 2 Factor Authenetication';
+        $page_description = 'Receive pin code on phone to proceed login ';
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        $is_2fa = $user->is_tfa_enabled;
+        return view('admin.pages.enable-twofa',compact('page_title', 'page_description','is_2fa'));
+    }
+    public function enable2FaSubmit(Request $request){
+        $enable = $request->enable;
+        if($enable == 'on'){
+            $id = Auth::user()->id;
+            $user = User::find($id);
+            $user->is_tfa_enabled = 1;
+            $user->save();
+            return redirect('/admin/enable-2fa')->with('success',"2 factor authentiaction enabled successfully");
+        }else{
+            $id = Auth::user()->id;
+            $user = User::find($id);
+            $user->is_tfa_enabled = 0;
+            $user->save();
+            return redirect('/admin/enable-2fa')->with('success',"2 factor authentiaction disabled successfully");
+        }
+    }
+
+
 }

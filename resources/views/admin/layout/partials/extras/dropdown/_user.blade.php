@@ -40,7 +40,7 @@
             </div>
             <div class="navi-text">
                 <div class="font-weight-bold">
-                    My Profile
+                    My Profile 5
                 </div>
                 <div class="text-muted">
                     Account settings and more

@@ -14,7 +14,7 @@
             <div class="container p-5">
                 <div class="row">
                     <div class="col-lg-4 offset-lg-4">
-                        <form method="POST" action="/enable-2fa">
+                        <form method="POST" action="/admin/enable-2fa">
                             @csrf
                             
                             <div class="form-group row text-center">

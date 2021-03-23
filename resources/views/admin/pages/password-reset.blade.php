@@ -14,7 +14,7 @@
             <div class="container p-5">
                 <div class="row">
                     <div class="col-lg-4 offset-lg-4">
-                        <form method="POST" action="/password-reset">
+                        <form method="POST" action="/admin/password-reset">
                             @csrf
                             <div class="form-group">
                                 <label for="newPassword">New Password</label>
