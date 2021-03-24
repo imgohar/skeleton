@@ -50,26 +50,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        if($data['country'] == "PK"){
-            return Validator::make($data, [
-                'fname' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'string', 'min:8'],
-                'id1' => ['required','mimes:jpeg,png,jpg','max:1999'],
-                'id2' => ['required','mimes:jpeg,png,jpg','max:1999'],
-                'nic' => ['required']
-
-            ]);
-        }
-        else{
-            return Validator::make($data, [
-                'fname' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'string', 'min:8'],
-                'id1' => ['mimes:jpeg,png,jpg','max:1999'],
-                'id2' => ['mimes:jpeg,png,jpg','max:1999']
-            ]);
-        }
+        return Validator::make($data, [
+            'fname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
+            'username' => ['required', 'string', 'max:20', 'unique:admins'],
+            'password' => ['required', 'string', 'min:8'],
+        ]);
         
     }
 
@@ -81,60 +67,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-         /********************************** 
-        // ALSO RUN PHP ARTISAN STORAGE:LINK
-        **********************************/
-        $request = request();
-        if ($request->file('id1') || $request->file('id2')) {
-        // GET FILE NAME WITH EXTENSION
-        $fileNameWithExtension1 = $request->file('id1')->getClientOriginalName();
-        $fileNameWithExtension2 = $request->file('id2')->getClientOriginalName();
-
-        // GET JUST THE FILE NAME
-        $fileName1 = pathinfo($fileNameWithExtension1,PATHINFO_FILENAME);
-        $fileName2 = pathinfo($fileNameWithExtension2,PATHINFO_FILENAME);
-
-        // GRT JUST THE EXTENSION WITHOUT DOT
-        $extension1 = $request->file("id1")->getClientOriginalExtension();
-        $extension2 = $request->file("id2")->getClientOriginalExtension();
-        
-        // CREATE NEW FILE NAME
-        $fileNameToStore1 = $fileName1 . '_front' . time(). '.' . $extension1;
-        $fileNameToStore2 = $fileName2 . '_back' . time(). '.' . $extension2;
-        
-        // UPLOAD IMAGE
-        $path1 = $request->file('id1')->storeAs('public/id-cards/',$fileNameToStore1);
-        $path2 = $request->file('id2')->storeAs('public/id-cards/',$fileNameToStore2);
-        
-        }else{
-            $fileNameToStore1 = '';
-            $fileNameToStore2 = '';
-        }
-
-        
-        
+         
         return User::create([
             
             'fname' => $data['fname'],
-            'mname' => $data['mname'],
             'lname' => $data['lname'],
-            'country' => $data['country'],
+            'username' => $data['username'],
             'email' => $data['email'],
             'phone' => $data['phone'],
-            'address_1' => $data['address_1'],
-            'address_2' => $data['address_2'],
-            'post_code' => $data['post_code'],
-            'city' => $data['city'],
-            'state' => $data['state'],
-            'business_name' => $data['bname'],
-            'business_tax_id' => $data['tid'],
-            'business_contact_number' => $data['bNumber'],
-            'nic' => $data['nic'],
-            'b_address_1' => $data['b_address_1'],
-            'b_address_2' => $data['b_address_2'],
-            'dba' => $data['dba'],
-            'id1' => $fileNameToStore1,
-            'id2' => $fileNameToStore2,
             'password' => Hash::make($data['password']),
         ]);
     }

@@ -15,17 +15,13 @@ use App\Http\Controllers\PagesController;
 |
 */
 
-Route::get('/', 'PagesController@index')->middleware('customer');
-Route::post('/pin',[PagesController::class,'index2'])->name('pin');
-Route::post('/pin2',[AdminController::class,'index2'])->name('pin2');
+Route::get('/', function(){
+    return redirect("/admin");
+});
+// Route::post('/pin2',[AdminController::class,'index2'])->name('pin2');
 
 // Demo routes
-Route::middleware(['phone_verify'])->group(function(){
-
-    Route::get("/change-profile-data",[PagesController::class,'chnageProfile']);
-    Route::post("/change-profile-data",[PagesController::class,'chnageProfileSubmit']);
-
-    Route::get("/delete-account",[PagesController::class,'deleteAccount']);
+// Route::middleware(['phone_verify'])->group(function(){
 
     Route::get('/datatables', 'PagesController@datatables');
     Route::get('/ktdatatables', 'PagesController@ktDatatables');
@@ -38,20 +34,14 @@ Route::middleware(['phone_verify'])->group(function(){
     Route::get('/icons/socicons', 'PagesController@socicons');
     Route::get('/icons/svg', 'PagesController@svg');
     
-    Route::get("/password-reset",[PagesController::class,'passwordRreset']);
-    Route::post("/password-reset",[PagesController::class,'passwordRresetSubmit']);
 
 
-    Route::get('/enable-2fa',[PagesController::class,'enable2Fa']);
-    Route::post('/enable-2fa',[PagesController::class,'enable2FaSubmit']);
-    
+   
     
     
     // Quick search dummy route to display html elements in search dropdown (header search)
     Route::get('/quick-search', 'PagesController@quickSearch')->name('quick-search');
 
-    Route::get("/change-profile",[PagesController::class,'changeProfile']);
-    Route::post("/change-profile",[PagesController::class,'changeProfileSubmit']);
 
     // ADMIN ROUTES
 
@@ -59,28 +49,13 @@ Route::middleware(['phone_verify'])->group(function(){
     
     Route::get("/admin/change-profile",[AdminController::class,'changeProfile']);
     Route::post("/admin/change-profile",[AdminController::class,'changeProfileSubmit']);
-
-    Route::get('/admin/enable-2fa',[AdminController::class,'enable2Fa']);
-    Route::post('/admin/enable-2fa',[AdminController::class,'enable2FaSubmit']);
-
     Route::get("/admin/password-reset",[AdminController::class,'passwordRreset']);
     Route::post("/admin/password-reset",[AdminController::class,'passwordRresetSubmit']);
     
-});
+// });
 
-Auth::routes(['verify' => true]);
+Auth::routes(['verify' => true,'register' => false]);
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
-Route::get("/signup",function(){
-    return view('auth.signup');
-})->name('signup');
-
-Route::get('/auth/google', 'Auth\GoogleController@redirectToGoogle');
-Route::get('/auth/google/callback', 'Auth\GoogleController@handleGoogleCallback');
-
-Route::get('/auth/github', 'Auth\GithubController@redirectToGoogle');
-Route::get('/auth/github/callback', 'Auth\GithubController@handleGoogleCallback');
-
 
 
 

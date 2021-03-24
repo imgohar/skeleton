@@ -43,16 +43,17 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                    @include('includes.alerts')
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
 
-                                @error('email')
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -99,13 +100,7 @@
                                 @endif
                             </div>
                             
-                        </div>
-                        <div class="col-lg-6 offset-lg-3 mt-3">
-                            <a href="{{ url('auth/google') }}" class="btn btn-outline-primary d-block m-5"><i class="flaticon-letter-g"></i>Login with google</a>
-                            <a href="{{ url('auth/github') }}" class="btn btn-outline-primary font-weight-bold d-block m-5"><i class="
-                                socicon-github"></i> Login with github</a>
-                        </div>
-                        
+                        </div>    
                     </form>
                 </div>
             </div>

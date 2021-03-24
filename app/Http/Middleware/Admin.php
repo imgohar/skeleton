@@ -17,22 +17,21 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
+
         if (!Auth::check()) {
             return redirect()->route('login');
         }
 
-        if (Auth::user()->role == 'customer') {
-            return redirect('/');
-        }
+        
 
         // if (Auth::user()->role == 'seller') {
         //     return redirect()->route('seller');
         // }
 
-        if (Auth::user()->role == 'admin') {
-            return $next($request);
-        }
+        // if (Auth::user()->role == 'superadmin') {
+        //     return $next($request);
+        // }
 
-        // return $next($request);
+        return $next($request);
     }
 }

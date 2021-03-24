@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
@@ -51,27 +52,22 @@ class LoginController extends Controller
         return redirect('/login');
       }
 
-    public function redirectTo()
-    {
-        switch(Auth::user()->role){
-            case 'admin':
-            $this->redirectTo = '/admin';
-            return $this->redirectTo;
-                break;
-            // case 'seller':
-            //     $this->redirectTo = '/seller';
-            //     return $this->redirectTo;
-            //     break;
-            case 'customer':
-                $this->redirectTo = '/';
-                return $this->redirectTo;
-                break;
-            default:
-                $this->redirectTo = '/login';
-                return $this->redirectTo;
+      public function login(Request $request)
+      {   
+          $input = $request->all();
+    
+          $this->validate($request, [
+              'username' => 'required',
+              'password' => 'required',
+          ]);
+    
+          $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+          if(auth()->attempt(array($fieldType => $input['username'], 'password' => $input['password'])))
+          {
+              return redirect()->route('admin');
+          }else{
+              return redirect()->route('login')->with('error','Email-Address And Password Are Wrong.');
+          }
         }
-         
-        // return $next($request);
-    } 
 }
 
