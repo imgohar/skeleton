@@ -51,6 +51,14 @@ Route::get('/', function(){
     Route::post("/admin/change-profile",[AdminController::class,'changeProfileSubmit']);
     Route::get("/admin/password-reset",[AdminController::class,'passwordRreset']);
     Route::post("/admin/password-reset",[AdminController::class,'passwordRresetSubmit']);
+
+
+
+
+
+    // USER ROUTES
+    Route::get("/admin/all-users",[AdminController::class,'allUsers']);
+    Route::get("/admin/user/delete/{id}",[AdminController::class,"deleteUser"]);
     
 // });
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Twilio\Rest\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -144,6 +145,25 @@ class AdminController extends Controller
     //         return redirect('/admin/enable-2fa')->with('success',"2 factor authentiaction disabled successfully");
     //     }
     // }
+
+
+    public function allUsers(){
+        $page_title = 'All Users';
+        $page_description = '';
+        $users = DB::table("users")->select('*')->get();
+
+        return view('pages.all-users', compact('page_title', 'page_description','users'));
+    }
+
+
+    public function deleteUser($id){
+        if(DB::table('users')->where('id',$id)->delete()){
+            return back()->with("success",'User deleted'); 
+        }
+        else{
+            return back()->with("error",'User can not be deleted at the moment'); 
+        }
+    }
 
 
 }
