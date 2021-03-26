@@ -59,12 +59,20 @@ Route::get('/', function(){
     // USER ROUTES
     Route::get("/admin/all-users",[AdminController::class,'allUsers']);
     Route::get("/admin/user/delete/{id}",[AdminController::class,"deleteUser"]);
+
+
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
+
     
 // });
 
 Auth::routes(['verify' => true,'register' => false]);
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
+// Route::group(['middleware' => ['auth']], function() {
+    
+    // Route::resource('products', ProductController::class);
+// });
 
 
 

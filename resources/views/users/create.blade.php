@@ -11,15 +11,13 @@
             <!--begin::Details-->
             <div class="d-flex align-items-center flex-wrap mr-2">
                 <!--begin::Title-->
-                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Edit User</h5>
+                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Create New Team Member</h5>
                 <!--end::Title-->
                 <!--begin::Separator-->
                 <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-5 bg-gray-200"></div>
                 <!--end::Separator-->
                 <!--begin::Search Form-->
-                <div class="d-flex align-items-center" id="kt_subheader_search">
-                    <span class="text-dark-50 font-weight-bold" id="kt_subheader_total">{{$user->fname . $user->lname}}</span>
-                </div>
+                
                 <!--end::Search Form-->
             </div>
             <!--end::Details-->
@@ -56,7 +54,7 @@
                                             <!--end::Svg Icon-->
                                         </span>
                                     </span>
-                                    <span class="nav-text font-size-lg">Profile</span>
+                                    <span class="nav-text font-size-lg">New registeration</span>
                                 </a>
                             </li>
                             <!--end::Item-->
@@ -70,7 +68,12 @@
                 <!--end::Card header-->
                 <!--begin::Card body-->
                 <div class="card-body">
-                    <form method="POST" action="/admin/change-profile" class="form" id="kt_form">
+                    <div class="text-right">
+                        <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
+                    </div>
+                    {{-- <form method="POST" action="/admin/change-profile" class="form" id="kt_form"> --}}
+                    {!! Form::open(array('route' => 'users.store','method'=>'POST',"class"=>"form", "id"=>"kt_form")) !!}
+                        
                         @csrf
                         <div class="tab-content">
                             <!--begin::Tab-->
@@ -88,7 +91,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-3 text-lg-right text-left">Name</label>
                                             <div class="col-9">
-                                                <input name="name" class="form-control form-control-lg form-control-solid" type="text" value="{{$user->name}}" required />
+                                                <input name="name" class="form-control form-control-lg form-control-solid" type="text"  required />
                                             </div>
                                         </div>
                                         
@@ -100,7 +103,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-3 text-lg-right text-left">Username</label>
                                             <div class="col-9">
-                                                <input name="username" class="form-control form-control-lg form-control-solid" type="text" value="{{$user->username}}" />
+                                                <input name="username" class="form-control form-control-lg form-control-solid" type="text" required />
                                             </div>
                                         </div>
                                         <!--end::Group-->
@@ -115,7 +118,7 @@
                                                             <i class="la la-phone"></i>
                                                         </span>
                                                     </div>
-                                                    <input name="phone" type="text" class="form-control form-control-lg form-control-solid" value="{{$user->phone}}" placeholder="Phone" />
+                                                    <input name="phone" type="text" class="form-control form-control-lg form-control-solid"  placeholder="Phone" />
                                                 </div>
                                                 
                                             </div>
@@ -131,11 +134,26 @@
                                                             <i class="la la-at"></i>
                                                         </span>
                                                     </div>
-                                                    <input name="email" type="text" class="form-control form-control-lg form-control-solid" value="{{$user->email}}" placeholder="Email" />
+                                                    <input name="email" type="text" class="form-control form-control-lg form-control-solid" placeholder="Email" required />
                                                 </div>
                                             </div>
                                         </div>
                                         <!--end::Group-->
+                                        <!--end::Group-->
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-3 text-lg-right text-left">Password</label>
+                                            <div class="col-9">
+                                                <input name="password" class="form-control form-control-lg form-control-solid" type="text" required />
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-3 text-lg-right text-left">Role</label>
+                                            <div class="col-9">
+                                                {!! Form::select('roles[]', $roles,[], array('class' => 'form-control','multiple')) !!}
+                                            </div>
+                                        </div>
+                                        
                                         
                                     </div>
                                 </div>
@@ -173,3 +191,4 @@
 </div>
 <!--end::Content-->
 @endsection
+

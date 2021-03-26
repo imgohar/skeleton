@@ -220,12 +220,19 @@ return [
         [
             'title' => 'Teams',
             'root' => true,
-            'icon' => 'media/svg/icons/General/User.svg',
-            'page' => '/admin/teams',
+            'icon' => 'media/svg/icons/General/Shield-check.svg',
+            'page' => '/users',
             // 'visible' => 'preview',
         ],
         [
-            'title' => 'All Users',
+            'title' => 'Roles',
+            'root' => true,
+            'icon' => 'media/svg/icons/Tools/Tools.svg',
+            'page' => '/roles',
+            // 'visible' => 'preview',
+        ],
+        [
+            'title' => 'Users',
             'root' => true,
             'icon' => 'media/svg/icons/General/User.svg',
             'page' => '/admin/all-users',

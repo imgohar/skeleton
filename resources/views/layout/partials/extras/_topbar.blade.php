@@ -143,19 +143,17 @@
                         <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
                         <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">
                             @php
-                                $fname =  Auth::user()->fname;   
-                                $lname =  Auth::user()->lname;   
-                                $name =  $fname . ' ' . $lname;   
+                                $name =  Auth::user()->name;    
                             @endphp
                             
                             {{$name}}</span>
                         <span class="symbol symbol-35 symbol-light-success">
                             @php
-                                $fname = Auth::user()->fname;                                
+                                $name = Auth::user()->name;                                
                                                               
                             @endphp
 
-                            <span class="symbol-label font-size-h5 font-weight-bold">{{$fname[0]}}</span>
+                            <span class="symbol-label font-size-h5 font-weight-bold">{{$name[0]}}</span>
                         </span>
                     </div>
                 </div>

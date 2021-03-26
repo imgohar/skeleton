@@ -19,13 +19,13 @@
             {{-- Symbol --}}
             <div class="symbol bg-white-o-15 mr-3">
                 @php
-                    $fname = Auth::user()->fname;
+                    $fname = Auth::user()->name;
                 @endphp
                 <span class="symbol-label text-success font-weight-bold font-size-h4">{{$fname[0]}}</span>
             </div>
 
             {{-- Text --}}
-            <div class="text-white m-0 flex-grow-1 mr-3 font-size-h5">{{Auth::user()->fname . ' '. Auth::user()->lname}}</div>
+            <div class="text-white m-0 flex-grow-1 mr-3 font-size-h5">{{Auth::user()->name}}</div>
         </div>
         
     </div>

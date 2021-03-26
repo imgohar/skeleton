@@ -65,6 +65,9 @@ class Kernel extends HttpKernel
         'phone_verify' => \App\Http\Middleware\PhoneVerify::class,
         'seller' => \App\Http\Middleware\Seller::class,
         'admin' => \App\Http\Middleware\Admin::class,
-        'customer' => \App\Http\Middleware\Customer::class
+        'customer' => \App\Http\Middleware\Customer::class,
+        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+        'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+        'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
     ];
 }

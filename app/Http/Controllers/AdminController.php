@@ -84,14 +84,13 @@ class AdminController extends Controller
     }
     public function changeProfileSubmit(Request $request){
         $request->validate([
-            'fname' => 'required',
+            'name' => 'required',
             'username' => 'required|unique:admins,username,'.Auth::user()->id.',',
             'phone' => 'required',
             'email' => 'required|unique:admins,email,'.Auth::user()->id.','
         ]);
         $user = User::find(Auth::user()->id);
-        $user->fname = $request->fname;
-        $user->lname = $request->lname;
+        $user->name = $request->name;
         $user->username = $request->username;
         $user->phone = $request->phone;
         $user->email = $request->email;
