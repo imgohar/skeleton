@@ -29,7 +29,7 @@ class UserController extends Controller
      */
     function __construct()
     {
-        $this->middleware(['auth','admin','verified']);
+        $this->middleware(['auth','admin']);
         $this->middleware('permission:team-list|team-create|team-edit|team-delete', ['only' => ['index','store']]);
         $this->middleware('permission:team-create', ['only' => ['create','store']]);
         $this->middleware('permission:team-edit', ['only' => ['edit','update']]);
