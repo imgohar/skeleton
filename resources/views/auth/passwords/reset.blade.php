@@ -1,22 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-     .success-muted-note {
-            color: #34bfa3 !important;
-            font-weight: 600 !important;
-        }
-
-            div.ex1 {
-                background: #eee;
-                height: 400px;
-                overflow: scroll;
-}
-
-</style>
-
-
-
         {{-- Favicon --}}
         <link rel="shortcut icon" href="{{ asset('media/logos/favicon.ico') }}" />
 
@@ -35,7 +19,7 @@
 
         {{-- Includable CSS --}}
         @yield('styles')
-@section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

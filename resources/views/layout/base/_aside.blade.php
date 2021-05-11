@@ -16,8 +16,9 @@
     <div class="brand flex-column-auto {{ Metronic::printClasses('brand', false) }}" id="kt_brand">
         <div class="brand-logo">
             <a href="{{ url('/') }}">
-                <img alt="{{ config('app.name') }}" src="{{ asset('media/logos/'.$kt_logo_image) }}"/>
+                <img alt="{{ config('app.name') }}" src="{{ asset('img/uzbekistan.png') }}" width="92" height="auto" style="background: center center;background-size: cover"/>
                 {{-- DarkCloud.io --}}
+                {{-- <span style="width: 92px;height: 12px;">Gohar</span> --}}
             </a>
         </div>
 

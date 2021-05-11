@@ -178,7 +178,6 @@ return [
 
         Brian2694\Toastr\ToastrServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-        Spatie\Permission\PermissionServiceProvider::class,
         
     ],
 

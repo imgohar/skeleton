@@ -18,7 +18,7 @@
                 <!--end::Separator-->
                 <!--begin::Search Form-->
                 <div class="d-flex align-items-center" id="kt_subheader_search">
-                    <span class="text-dark-50 font-weight-bold" id="kt_subheader_total">{{$user->fname . $user->lname}}</span>
+                    <span class="text-dark-50 font-weight-bold" id="kt_subheader_total">{{$user->name }}</span>
                 </div>
                 <!--end::Search Form-->
             </div>
@@ -70,7 +70,7 @@
                 <!--end::Card header-->
                 <!--begin::Card body-->
                 <div class="card-body">
-                    <form method="POST" action="/admin/change-profile" class="form" id="kt_form">
+                    <form method="POST" action="/change-profile" class="form" id="kt_form">
                         @csrf
                         <div class="tab-content">
                             <!--begin::Tab-->

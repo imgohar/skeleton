@@ -34,7 +34,7 @@
 {{-- Nav --}}
 <div class="navi navi-spacer-x-0 pt-5">
     {{-- Item --}}
-    <a href="/admin/change-profile" class="navi-item px-8">
+    <a href="/change-profile" class="navi-item px-8">
         <div class="navi-link">
             <div class="navi-icon mr-2">
                 <i class="flaticon2-calendar-3 text-success"></i>
@@ -50,7 +50,7 @@
             </div>
         </div>
     </a>
-    <a href="/admin/password-reset" class="navi-item px-8">
+    <a href="/password-reset" class="navi-item px-8">
         <div class="navi-link">
             <div class="navi-icon mr-2">
                 <i class="flaticon-security text-info"></i>
@@ -60,53 +60,19 @@
                     Reset Password
                 </div>
                 <div class="text-muted">
-                    Reset Your password
-                    
+                    Reset Your password     
                 </div>
             </div>
         </div>
     </a>
 
     
-    {{-- Item --}}
-    <a href="#"  class="navi-item px-8">
-        <div class="navi-link">
-            <div class="navi-icon mr-2">
-                <i class="flaticon2-rocket-1 text-danger"></i>
-            </div>
-            <div class="navi-text">
-                <div class="font-weight-bold">
-                    My Activities
-                </div>
-                <div class="text-muted">
-                    Logs and notifications
-                </div>
-            </div>
-        </div>
-    </a>
-
-    {{-- Item --}}
-    <a href="#" class="navi-item px-8">
-        <div class="navi-link">
-            <div class="navi-icon mr-2">
-                <i class="flaticon2-hourglass text-primary"></i>
-            </div>
-            <div class="navi-text">
-                <div class="font-weight-bold">
-                    My Tasks
-                </div>
-                <div class="text-muted">
-                    latest tasks and projects
-                </div>
-            </div>
-        </div>
-    </a>
-
+    
     {{-- Footer --}}
     <div class="navi-separator mt-3"></div>
     <div class="navi-footer  px-8 py-5">
         <a href="/logout" class="btn btn-light-primary font-weight-bold">Sign Out</a>
-        <a href="#" target="_blank" class="btn btn-clean font-weight-bold">Upgrade Plan</a>
+        
     </div>
 </div>
 
